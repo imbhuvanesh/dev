@@ -35,16 +35,16 @@
 			isLooping = true;
 			root.classList.add('loop-reveal');
 			clearTimeout(loopTimer);
-			loopTimer = setTimeout(() => { autoReturning = true; window.scrollTo({ top: 0, behavior: 'smooth' }); setTimeout(() => { isLooping = false; autoReturning = false; root.classList.remove('loop-reveal'); }, 1100); }, 3000);
+			loopTimer = setTimeout(() => { autoReturning = true; window.scrollTo({ top: 0, behavior: 'smooth' }); setTimeout(() => { isLooping = false; autoReturning = false; root.classList.remove('loop-reveal'); }, 1100); }, 800);
 		}
 		if (progress < .92 && isLooping && !autoReturning) { clearTimeout(loopTimer); isLooping = false; root.classList.remove('loop-reveal'); }
 		const heroProgress = clamp(progress / .25);
 		const finalHero = returnProgress * (1 - returnProgress * .18);
 		hero.style.transform = `translate(-50%, -50%) scale(${1 + heroProgress * 1.8 + finalHero * .42})`;
-		hero.style.opacity = progress < .18 ? 1 : progress < .28 ? 1 - clamp((progress - .18) / .1) : finalHero;
+		hero.style.opacity = progress < .08 ? 1 : progress < .14 ? 1 - clamp((progress - .08) / .06) : 0;
 		wordmark.style.transform = `translate(-50%, calc(-50% + ${progress * -8}vh)) scale(${1 + progress * .08})`;
-		intro.style.opacity = clamp(1 - progress * 8);
-		label.textContent = progress < .14 ? 'INTRO' : progress > .86 ? 'RETURN' : panels[Math.min(panels.length - 1, Math.floor(contentProgress * panels.length))].dataset.label;
+		if (intro) intro.style.opacity = clamp(1 - progress * 8);
+		if (label) label.textContent = progress < .14 ? 'INTRO' : progress > .86 ? 'RETURN' : panels[Math.min(panels.length - 1, Math.floor(contentProgress * panels.length))].dataset.label;
 		panels.forEach((panel, index) => {
 			const center = (index + .5) / panels.length;
 			const focus = clamp(1 - Math.abs(contentProgress - center) * 4.2);
@@ -52,7 +52,7 @@
 			const exit = ease(clamp((contentProgress - (index + .82) / panels.length) * panels.length * 1.8));
 			const opacity = Math.min(1, entrance) * (1 - exit * .82) * (1 - returnProgress * .82);
 			panel.style.opacity = reducedMotion ? (index === Math.floor(contentProgress * panels.length) ? 1 : 0) : opacity;
-			panel.style.transform = `translate(-50%, ${35 - entrance * 35 + exit * -18}px) scale(${.92 + focus * .08})`;
+			panel.style.transform = `translate(-50%, ${35 - entrance * 35 + exit * -18}px) scale(${1.1 - focus * .1})`;
 			panel.style.filter = `blur(${Math.max(0, 8 - focus * 8)}px)`;
 			panel.style.pointerEvents = focus > .42 ? 'auto' : 'none';
 		});
