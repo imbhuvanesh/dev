@@ -25,6 +25,8 @@
 	const resize = () => root.style.setProperty('--journey-height', `${Math.max(window.innerHeight, 560) * (2.1 + panels.length * .9)}px`);
 	const ease = value => value < .5 ? 2 * value * value : 1 - Math.pow(-2 * value + 2, 2) / 2;
 	const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value));
+	const panelOrigins = panels.map((_, index) => ({ x: ((index * 47) % 121) - 60, y: ((index * 83) % 101) - 50 }));
+	const slashVariants = panels.map((_, index) => ({ angle: -28 + ((index * 37) % 57), top: 28 + ((index * 43) % 45) }));
 	const render = () => {
 		frame = 0;
 		const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
@@ -45,17 +47,30 @@
 		wordmark.style.transform = `translate(-50%, calc(-50% + ${progress * -8}vh)) scale(${1 + progress * .08})`;
 		if (intro) intro.style.opacity = clamp(1 - progress * 8);
 		if (label) label.textContent = progress < .14 ? 'INTRO' : progress > .86 ? 'RETURN' : panels[Math.min(panels.length - 1, Math.floor(contentProgress * panels.length))].dataset.label;
+		let screenSlashOpacity = 0;
+		let screenSlashProgress = 0;
+		let screenSlashVariant = slashVariants[0];
 		panels.forEach((panel, index) => {
+			const slashVariant = slashVariants[index];
+			const origin = panelOrigins[index];
 			const center = (index + .5) / panels.length;
 			const focus = clamp(1 - Math.abs(contentProgress - center) * 4.2);
 			const entrance = ease(clamp((contentProgress - index / panels.length) * panels.length * 1.8));
 			const exit = ease(clamp((contentProgress - (index + .82) / panels.length) * panels.length * 1.8));
 			const opacity = Math.min(1, entrance) * (1 - exit * .82) * (1 - returnProgress * .82);
+			const slashOpacity = Math.min(1, entrance) * (1 - exit) * (1 - returnProgress);
+			panel.style.setProperty('--slash-progress', entrance);
+			panel.style.setProperty('--slash-opacity', slashOpacity);
+			if (slashOpacity > screenSlashOpacity) { screenSlashOpacity = slashOpacity; screenSlashProgress = entrance; screenSlashVariant = slashVariant; }
 			panel.style.opacity = reducedMotion ? (index === Math.floor(contentProgress * panels.length) ? 1 : 0) : opacity;
-			panel.style.transform = `translate(-50%, ${35 - entrance * 35 + exit * -18}px) scale(${1.1 - focus * .1})`;
+			panel.style.transform = `translate(calc(-50% + ${(1 - entrance) * origin.x}px), ${35 - entrance * 35 + (1 - entrance) * origin.y + exit * -18}px) scale(${1.1 - focus * .1})`;
 			panel.style.filter = `blur(${Math.max(0, 8 - focus * 8)}px)`;
 			panel.style.pointerEvents = focus > .42 ? 'auto' : 'none';
 		});
+		root.style.setProperty('--screen-slash-opacity', screenSlashOpacity);
+		root.style.setProperty('--screen-slash-progress', screenSlashProgress);
+		root.style.setProperty('--screen-slash-angle', `${screenSlashVariant.angle}deg`);
+		root.style.setProperty('--screen-slash-top', `${screenSlashVariant.top}%`);
 	};
 	const onScroll = () => { if (!frame) frame = requestAnimationFrame(render); };
 	resize(); render();
