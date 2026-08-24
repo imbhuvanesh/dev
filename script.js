@@ -7,6 +7,21 @@
 	const label = document.querySelector('#progress-label');
 	const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 	let frame = 0;
+	let loopTimer;
+	let isLooping = false;
+	let autoReturning = false;
+	const iconSlugs = {Java:'java',HTML:'html5',CSS:'css3',JavaScript:'javascript',Python:'python','Node.js':'node.js',MySQL:'mysql',Supabase:'supabase',Flutter:'flutter',Git:'git',Linux:'linux','VS Code':'visualstudiocode',Photoshop:'adobephotoshop','Premiere Pro':'adobepremierepro','After Effects':'adobeaftereffects','Motion Graphics':'adobeaftereffects','Visual Design':'adobephotoshop'};
+	const iconColors = {java:'ED8B00',html5:'E34F26',css3:'1572B6',javascript:'F7DF1E',python:'3776AB','node.js':'5FA04E',mysql:'4479A1',supabase:'3FCF8E',flutter:'02569B',git:'F05032',linux:'FCC624',visualstudiocode:'007ACC',adobephotoshop:'31A8FF',adobepremierepro:'9999FF',adobeaftereffects:'9999FF'};
+	document.querySelectorAll('.chips b').forEach(chip => { const name = chip.textContent.trim(); const slug = iconSlugs[name]; chip.setAttribute('aria-label', name); if (!slug) return; const icon = document.createElement('img'); icon.src = `https://cdn.simpleicons.org/${slug}/${iconColors[slug]}`; icon.alt = ''; chip.prepend(icon); });
+	const socialIcons = {GH:['github','FFFFFF'],in:['linkedin','0A66C2'],ig:['instagram','E4405F']};
+	document.querySelectorAll('.social-list a > span:first-child').forEach(mark => { const item = socialIcons[mark.textContent.trim()]; if (!item) return; mark.setAttribute('aria-label', mark.textContent.trim()); mark.textContent = ''; const icon = document.createElement('img'); icon.src = `https://cdn.simpleicons.org/${item[0]}/${item[1]}`; icon.alt = ''; mark.append(icon); });
+	const support = document.querySelector('.support-link > span');
+	if (support) { support.setAttribute('aria-label', 'Buy Me a Coffee'); support.textContent = ''; const icon = document.createElement('img'); icon.src = 'https://cdn.simpleicons.org/buymeacoffee/FFDD00'; icon.alt = ''; support.append(icon); }
+	const serviceIcons = {Development:'visualstudiocode',Creative:'adobecreativecloud','Digital Experiences':'framer'};
+	document.querySelectorAll('.service-card h3').forEach(title => { const slug = serviceIcons[title.textContent.trim()]; if (!slug) return; title.setAttribute('aria-label', title.textContent.trim()); const icon = document.createElement('img'); icon.src = `https://cdn.simpleicons.org/${slug}/9B6CFF`; icon.alt = ''; title.textContent = ''; title.append(icon); });
+	document.querySelectorAll('.project-link').forEach(link => { link.textContent = 'VIEW PROJECT  ↗'; });
+	const contactDetails = document.querySelector('.contact-details');
+	if (contactDetails) { const contact = document.createElement('a'); contact.className = 'contact-button'; contact.href = 'mailto:iambhuvanesh.a@gmail.com'; contact.innerHTML = 'CONTACT ME <span>↗</span>'; contactDetails.append(contact); }
 	const resize = () => root.style.setProperty('--journey-height', `${Math.max(window.innerHeight, 560) * (2.1 + panels.length * .9)}px`);
 	const ease = value => value < .5 ? 2 * value * value : 1 - Math.pow(-2 * value + 2, 2) / 2;
 	const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value));
@@ -16,9 +31,16 @@
 		const progress = maxScroll > 0 ? clamp(window.scrollY / maxScroll) : 0;
 		const contentProgress = clamp((progress - .14) / .72);
 		const returnProgress = clamp((progress - .86) / .14);
+		if (progress > .985 && !isLooping && !reducedMotion) {
+			isLooping = true;
+			root.classList.add('loop-reveal');
+			clearTimeout(loopTimer);
+			loopTimer = setTimeout(() => { autoReturning = true; window.scrollTo({ top: 0, behavior: 'smooth' }); setTimeout(() => { isLooping = false; autoReturning = false; root.classList.remove('loop-reveal'); }, 1100); }, 3000);
+		}
+		if (progress < .92 && isLooping && !autoReturning) { clearTimeout(loopTimer); isLooping = false; root.classList.remove('loop-reveal'); }
 		const heroProgress = clamp(progress / .25);
 		const finalHero = returnProgress * (1 - returnProgress * .18);
-		hero.style.transform = `translate(-50%, -50%) scale(${1 + heroProgress * 1.8 + finalHero * .08})`;
+		hero.style.transform = `translate(-50%, -50%) scale(${1 + heroProgress * 1.8 + finalHero * .42})`;
 		hero.style.opacity = progress < .18 ? 1 : progress < .28 ? 1 - clamp((progress - .18) / .1) : finalHero;
 		wordmark.style.transform = `translate(-50%, calc(-50% + ${progress * -8}vh)) scale(${1 + progress * .08})`;
 		intro.style.opacity = clamp(1 - progress * 8);
