@@ -10,9 +10,8 @@
 	let loopTimer;
 	let isLooping = false;
 	let autoReturning = false;
-	const iconSlugs = {Java:'java',HTML:'html5',CSS:'css3',JavaScript:'javascript',Python:'python','Node.js':'node.js',MySQL:'mysql',Supabase:'supabase',Flutter:'flutter',Git:'git',Linux:'linux','VS Code':'visualstudiocode',Photoshop:'adobephotoshop','Premiere Pro':'adobepremierepro','After Effects':'adobeaftereffects','Motion Graphics':'adobeaftereffects','Visual Design':'adobephotoshop'};
-	const iconColors = {java:'ED8B00',html5:'E34F26',css3:'1572B6',javascript:'F7DF1E',python:'3776AB','node.js':'5FA04E',mysql:'4479A1',supabase:'3FCF8E',flutter:'02569B',git:'F05032',linux:'FCC624',visualstudiocode:'007ACC',adobephotoshop:'31A8FF',adobepremierepro:'9999FF',adobeaftereffects:'9999FF'};
-	document.querySelectorAll('.chips b').forEach(chip => { const name = chip.textContent.trim(); const slug = iconSlugs[name]; chip.setAttribute('aria-label', name); if (!slug) return; const icon = document.createElement('img'); icon.src = `https://cdn.simpleicons.org/${slug}/${iconColors[slug]}`; icon.alt = ''; chip.prepend(icon); });
+	const iconSlugs = {Java:'java',HTML:'html',CSS:'css',JavaScript:'js',Python:'python','Node.js':'nodejs',MySQL:'mysql',Supabase:'supabase',Flutter:'flutter',Git:'git',Linux:'linux','VS Code':'vscode',Photoshop:'ps','Premiere Pro':'pr','After Effects':'ae','Motion Graphics':'ae','Visual Design':'ps'};
+	document.querySelectorAll('.chips b').forEach(chip => { const name = chip.textContent.trim(); const slug = iconSlugs[name]; chip.setAttribute('aria-label', name); if (!slug) return; const icon = document.createElement('img'); icon.src = `https://skillicons.dev/icons?i=${slug}`; icon.alt = ''; chip.textContent = ''; chip.append(icon); });
 	const socialIcons = {GH:['github','FFFFFF'],in:['linkedin','0A66C2'],ig:['instagram','E4405F']};
 	document.querySelectorAll('.social-list a > span:first-child').forEach(mark => { const item = socialIcons[mark.textContent.trim()]; if (!item) return; mark.setAttribute('aria-label', mark.textContent.trim()); mark.textContent = ''; const icon = document.createElement('img'); icon.src = `https://cdn.simpleicons.org/${item[0]}/${item[1]}`; icon.alt = ''; mark.append(icon); });
 	const support = document.querySelector('.support-link > span');
@@ -64,7 +63,8 @@
 			if (slashOpacity > screenSlashOpacity) { screenSlashOpacity = slashOpacity; screenSlashProgress = entrance; screenSlashVariant = slashVariant; }
 			panel.style.opacity = reducedMotion ? (index === Math.floor(contentProgress * panels.length) ? 1 : 0) : opacity;
 			panel.style.transform = `translate(calc(-50% + ${(1 - entrance) * origin.x}px), ${35 - entrance * 35 + (1 - entrance) * origin.y + exit * -18}px) scale(${1.1 - focus * .1})`;
-			panel.style.filter = `blur(${Math.max(0, 8 - focus * 8)}px)`;
+			const motionAmount = Math.min(1, Math.abs(1 - entrance) + exit);
+			panel.style.filter = `blur(${motionAmount * 3.5}px)`;
 			panel.style.pointerEvents = focus > .42 ? 'auto' : 'none';
 		});
 		root.style.setProperty('--screen-slash-opacity', screenSlashOpacity);
