@@ -1,0 +1,42 @@
+(() => {
+	const root = document.documentElement;
+	const panels = [...document.querySelectorAll('.panel')];
+	const hero = document.querySelector('.hero-wrap');
+	const wordmark = document.querySelector('.wordmark');
+	const intro = document.querySelector('.intro-copy');
+	const label = document.querySelector('#progress-label');
+	const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	let frame = 0;
+	const resize = () => root.style.setProperty('--journey-height', `${Math.max(window.innerHeight, 560) * (2.1 + panels.length * .9)}px`);
+	const ease = value => value < .5 ? 2 * value * value : 1 - Math.pow(-2 * value + 2, 2) / 2;
+	const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value));
+	const render = () => {
+		frame = 0;
+		const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+		const progress = maxScroll > 0 ? clamp(window.scrollY / maxScroll) : 0;
+		const contentProgress = clamp((progress - .14) / .72);
+		const returnProgress = clamp((progress - .86) / .14);
+		const heroProgress = clamp(progress / .25);
+		const finalHero = returnProgress * (1 - returnProgress * .18);
+		hero.style.transform = `translate(-50%, -50%) scale(${1 + heroProgress * 1.8 + finalHero * .08})`;
+		hero.style.opacity = progress < .18 ? 1 : progress < .28 ? 1 - clamp((progress - .18) / .1) : finalHero;
+		wordmark.style.transform = `translate(-50%, calc(-50% + ${progress * -8}vh)) scale(${1 + progress * .08})`;
+		intro.style.opacity = clamp(1 - progress * 8);
+		label.textContent = progress < .14 ? 'INTRO' : progress > .86 ? 'RETURN' : panels[Math.min(panels.length - 1, Math.floor(contentProgress * panels.length))].dataset.label;
+		panels.forEach((panel, index) => {
+			const center = (index + .5) / panels.length;
+			const focus = clamp(1 - Math.abs(contentProgress - center) * 4.2);
+			const entrance = ease(clamp((contentProgress - index / panels.length) * panels.length * 1.8));
+			const exit = ease(clamp((contentProgress - (index + .82) / panels.length) * panels.length * 1.8));
+			const opacity = Math.min(1, entrance) * (1 - exit * .82) * (1 - returnProgress * .82);
+			panel.style.opacity = reducedMotion ? (index === Math.floor(contentProgress * panels.length) ? 1 : 0) : opacity;
+			panel.style.transform = `translate(-50%, ${35 - entrance * 35 + exit * -18}px) scale(${.92 + focus * .08})`;
+			panel.style.filter = `blur(${Math.max(0, 8 - focus * 8)}px)`;
+			panel.style.pointerEvents = focus > .42 ? 'auto' : 'none';
+		});
+	};
+	const onScroll = () => { if (!frame) frame = requestAnimationFrame(render); };
+	resize(); render();
+	window.addEventListener('resize', () => { resize(); render(); }, { passive: true });
+	window.addEventListener('scroll', onScroll, { passive: true });
+})();
