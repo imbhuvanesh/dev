@@ -46,15 +46,19 @@
 	   ----------------------------------------------------------- */
 	const journey = document.querySelector('.journey');
 	if (journey) {
-		journey.innerHTML = `<section class="intro-section profile-container" aria-label="Introduction">
+		journey.innerHTML = `<div class="section-spacer" aria-hidden="true"></div>
+
+		<section class="intro-section profile-container" aria-label="Introduction">
 			<img class="typing-svg" src="https://readme-typing-svg.herokuapp.com?font=Google+Sans&size=38&duration=3000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=600&lines=Hello+World!;I+am+Bhuvanesh!;Developer!;Freelancer!" alt="Hello World, I am Bhuvanesh, Developer, Freelancer" width="600" height="63" loading="eager">
 		</section>
+		<div class="section-spacer" aria-hidden="true"></div>
 
 		<section class="about-section profile-container section-reveal" aria-label="About">
 			<h2>About</h2>
 			<p class="about-text">I'm a creative developer and freelancer based in Chennai, passionate about building thoughtful digital experiences that blend clean code with compelling design. From web apps to mobile interfaces, I turn ideas into polished, functional products.</p>
 			<p class="about-text">When I'm not coding, you'll find me exploring new tools, experimenting with visual storytelling, and pushing the boundaries of what the web can do.</p>
 		</section>
+		<div class="section-spacer" aria-hidden="true"></div>
 
 		<section class="skills-section profile-container section-reveal" aria-label="Skills and tools">
 			<h3>Tech Stack</h3>
@@ -62,6 +66,7 @@
 			<h3>Creative Tools</h3>
 			<div class="profile-icon-row"><img src="https://skillicons.dev/icons?i=figma" alt="Figma" loading="lazy"><img src="https://skillicons.dev/icons?i=ps" alt="Adobe Photoshop" loading="lazy"><img src="https://skillicons.dev/icons?i=pr" alt="Adobe Premiere Pro" loading="lazy"><img src="https://skillicons.dev/icons?i=ae" alt="Adobe After Effects" loading="lazy"><img src="https://skillicons.dev/icons?i=notion" alt="Notion" loading="lazy"><img src="https://skillicons.dev/icons?i=obsidian" alt="Obsidian" loading="lazy"></div>
 		</section>
+		<div class="section-spacer" aria-hidden="true"></div>
 
 		<section class="projects-section profile-container section-reveal" aria-label="Projects portfolio">
 			<h2>Projects</h2>
@@ -92,6 +97,7 @@
 				</article>
 			</div>
 		</section>
+		<div class="section-spacer" aria-hidden="true"></div>
 
 		<section class="contact-section profile-container section-reveal" aria-label="Contact">
 			<h2>Contact</h2>
@@ -105,41 +111,118 @@
 			</div>
 			<h3>Support My Work</h3>
 			<a class="support-button" href="https://buymeacoffee.com/bhuvaneshh" target="_blank" rel="noopener noreferrer"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" loading="lazy"></a>
-		</section>`;
+		</section>
+		<div class="section-spacer" aria-hidden="true"></div>
+		<div class="section-spacer" aria-hidden="true"></div>`;
 
-		/* ---- Generic section reveal ---- */
+		/* ---- Cinematic staggered reveal ---- */
 		const revealHero = () => document.documentElement.classList.add('content-revealed');
 		const restoreHero = () => document.documentElement.classList.remove('content-revealed');
 
-		const attachReveal = (section, { isIntro = false } = {}) => {
-			if (!section) return;
+		const cascadeSections = [
+			{ el: journey.querySelector('.intro-section'), isIntro: true },
+			{ el: journey.querySelector('.about-section') },
+			{ el: journey.querySelector('.skills-section') },
+			{ el: journey.querySelector('.projects-section') },
+			{ el: journey.querySelector('.contact-section') },
+		];
+
+		const staggerDelay = 280;
+		const pending = new Map();
+
+		cascadeSections.forEach((item, index) => {
+			if (!item.el) return;
+			const prev = index > 0 ? cascadeSections[index - 1].el : null;
+			const isLast = index === cascadeSections.length - 1;
+
 			const update = () => {
-				const top = section.getBoundingClientRect().top;
-				const isVisible = top <= window.innerHeight * 0.85;
-				section.classList.toggle('is-visible', isVisible);
-				if (isIntro) {
-					if (!isVisible) {
-						restoreHero();
-					} else if (reducedMotion) {
-						revealHero();
-					}
+				const top = item.el.getBoundingClientRect().top;
+				const threshold = isLast ? 0.82 : 0.5;
+				const inView = top <= window.innerHeight * threshold;
+
+				if (!inView) {
+					if (pending.has(index)) { clearTimeout(pending.get(index)); pending.delete(index); }
+					item.el.classList.remove('is-visible');
+					if (item.isIntro) restoreHero();
+					return;
+				}
+
+				if (!item.el.classList.contains('is-visible') && !pending.has(index)) {
+					const prevReady = !prev || prev.classList.contains('is-visible');
+					if (!prevReady) return;
+
+					const delay = item.isIntro ? 0 : staggerDelay;
+					pending.set(index, setTimeout(() => {
+						pending.delete(index);
+						item.el.classList.add('is-visible');
+						if (item.isIntro && reducedMotion) revealHero();
+					}, delay));
 				}
 			};
-			if (isIntro) {
-				section.addEventListener('transitionend', (event) => {
-					if (event.target !== section || event.propertyName !== 'opacity') return;
-					if (section.classList.contains('is-visible')) revealHero();
+
+			if (item.isIntro) {
+				item.el.addEventListener('transitionend', (event) => {
+					if (event.target !== item.el || event.propertyName !== 'opacity') return;
+					if (item.el.classList.contains('is-visible')) revealHero();
 				});
 			}
+
 			window.addEventListener('scroll', update, { passive: true });
 			update();
+		});
+
+		/* ---- Stagger individual project cards ---- */
+		const projectsSection = journey.querySelector('.projects-section');
+		if (projectsSection) {
+			const cards = projectsSection.querySelectorAll('.project-card');
+			const projectObserver = new MutationObserver(() => {
+				if (projectsSection.classList.contains('is-visible')) {
+					cards.forEach((card, i) => {
+						card.style.transitionDelay = `${i * 120}ms`;
+						card.classList.add('card-visible');
+					});
+				} else {
+					cards.forEach(card => {
+						card.style.transitionDelay = '';
+						card.classList.remove('card-visible');
+					});
+				}
+			});
+			projectObserver.observe(projectsSection, { attributes: true, attributeFilter: ['class'] });
+		}
+
+		/* ---- Loop: scroll back to hero at page bottom ---- */
+		let looping = false;
+		const loopThreshold = 80;
+
+		const resetAllSections = () => {
+			cascadeSections.forEach((item) => {
+				if (item.el) item.el.classList.remove('is-visible');
+			});
+			pending.forEach((timer) => clearTimeout(timer));
+			pending.clear();
+			document.querySelectorAll('.project-card').forEach(card => {
+				card.style.transitionDelay = '';
+				card.classList.remove('card-visible');
+			});
+			restoreHero();
 		};
 
-		attachReveal(journey.querySelector('.intro-section'), { isIntro: true });
-		attachReveal(journey.querySelector('.about-section'));
-		attachReveal(journey.querySelector('.skills-section'));
-		attachReveal(journey.querySelector('.projects-section'));
-		attachReveal(journey.querySelector('.contact-section'));
+		const checkLoop = () => {
+			if (looping) return;
+			const atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - loopThreshold;
+			if (!atBottom) return;
+
+			looping = true;
+			resetAllSections();
+
+			setTimeout(() => {
+				window.scrollTo({ top: 0, behavior: 'smooth' });
+				setTimeout(() => { looping = false; }, 1200);
+			}, 350);
+		};
+
+		window.addEventListener('scroll', checkLoop, { passive: true });
 
 	}
 
