@@ -51,16 +51,14 @@
 			<h3>Tech Stack</h3>
 			<div class="profile-icon-row"><img src="https://skillicons.dev/icons?i=java" alt="Java" loading="lazy"><img src="https://skillicons.dev/icons?i=html" alt="HTML" loading="lazy"><img src="https://skillicons.dev/icons?i=css" alt="CSS" loading="lazy"><img src="https://skillicons.dev/icons?i=js" alt="JavaScript" loading="lazy"><img src="https://skillicons.dev/icons?i=python" alt="Python" loading="lazy"><img src="https://skillicons.dev/icons?i=nodejs" alt="Node.js" loading="lazy"><img src="https://skillicons.dev/icons?i=mysql" alt="MySQL" loading="lazy"><img src="https://skillicons.dev/icons?i=supabase" alt="Supabase" loading="lazy"><img src="https://skillicons.dev/icons?i=flutter" alt="Flutter" loading="lazy"><img src="https://skillicons.dev/icons?i=git" alt="Git" loading="lazy"><img src="https://skillicons.dev/icons?i=linux" alt="Linux" loading="lazy"><img src="https://skillicons.dev/icons?i=vscode" alt="VS Code" loading="lazy"></div>
 			<h3>Creative Tools</h3>
-			<div class="profile-icon-row"><img src="https://skillicons.dev/icons?i=figma" alt="Figma" loading="lazy"><img src="https://skillicons.dev/icons?i=ps" alt="Adobe Photoshop" loading="lazy"><img src="https://skillicons.dev/icons?i=pr" alt="Adobe Premiere Pro" loading="lazy"><img src="https://skillicons.dev/icons?i=ae" alt="Adobe After Effects" loading="lazy"></div>
+			<div class="profile-icon-row"><img src="https://skillicons.dev/icons?i=figma" alt="Figma" loading="lazy"><img src="https://skillicons.dev/icons?i=ps" alt="Adobe Photoshop" loading="lazy"><img src="https://skillicons.dev/icons?i=pr" alt="Adobe Premiere Pro" loading="lazy"><img src="https://skillicons.dev/icons?i=ae" alt="Adobe After Effects" loading="lazy"><img src="https://skillicons.dev/icons?i=notion" alt="Notion" loading="lazy"><img src="https://skillicons.dev/icons?i=obsidian" alt="Obsidian" loading="lazy"></div>
 			<h2>Contact</h2>
-			<div class="profile-details" aria-label="Contact links">
-				<a href="https://maps.google.com/?q=Chennai,Tamil Nadu,India" target="_blank" rel="noopener noreferrer" aria-label="Location: Chennai, Tamil Nadu, India" title="Location"><img src="Images/icons/maps.png" alt="" loading="lazy"></a>
-				<a href="mailto:iambhuvanesh.a@gmail.com" aria-label="Email: iambhuvanesh.a@gmail.com" title="Email"><img src="Images/icons/gmail.png" alt="" loading="lazy"></a>
-				<a href="tel:+919944725379" aria-label="Phone: +91 99447 25379" title="Phone"><img src="Images/icons/phone.png" alt="" loading="lazy"></a>
-				<a href="https://github.com/imbhuvanesh/" target="_blank" rel="noopener noreferrer" aria-label="GitHub: github.com/imbhuvanesh/" title="GitHub"><img src="Images/icons/github.png" alt="" loading="lazy"></a>
-				<a href="https://linkedin.com/in/im-bhuvanesh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn: linkedin.com/in/im-bhuvanesh" title="LinkedIn"><img src="Images/icons/linkedin.png" alt="" loading="lazy"></a>
-				<a href="https://instagram.com/bhuvy._" target="_blank" rel="noopener noreferrer" aria-label="Instagram: @bhuvy._" title="Instagram"><img src="Images/icons/instragram.png" alt="" loading="lazy"></a>
-			</div>
+			<a class="contact-link" href="https://maps.google.com/?q=Chennai,Tamil Nadu,India" target="_blank" rel="noopener noreferrer" aria-label="Location: Chennai, Tamil Nadu, India" title="Location"><img src="Images/icons/maps.png" alt="" loading="lazy"></a>
+			<a class="contact-link" href="mailto:iambhuvanesh.a@gmail.com" aria-label="Email: iambhuvanesh.a@gmail.com" title="Email"><img src="Images/icons/gmail.png" alt="" loading="lazy"></a>
+			<a class="contact-link" href="tel:+919944725379" aria-label="Phone: +91 99447 25379" title="Phone"><img src="Images/icons/phone.png" alt="" loading="lazy"></a>
+			<a class="contact-link" href="https://github.com/imbhuvanesh/" target="_blank" rel="noopener noreferrer" aria-label="GitHub: github.com/imbhuvanesh/" title="GitHub"><img src="Images/icons/github.png" alt="" loading="lazy"></a>
+			<a class="contact-link" href="https://linkedin.com/in/im-bhuvanesh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn: linkedin.com/in/im-bhuvanesh" title="LinkedIn"><img src="Images/icons/linkedin.png" alt="" loading="lazy"></a>
+			<a class="contact-link" href="https://instagram.com/bhuvy._" target="_blank" rel="noopener noreferrer" aria-label="Instagram: @bhuvy._" title="Instagram"><img src="Images/icons/instragram.png" alt="" loading="lazy"></a>
 			<h3>Support My Work</h3>
 			<a class="support-button" href="https://buymeacoffee.com/bhuvaneshh" target="_blank" rel="noopener noreferrer"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" loading="lazy"></a>
 		</section>`;
@@ -98,33 +96,6 @@
 			updateProfileReveal();
 		}
 
-		/* contact / support icon interaction:
-		   - hover/focus motion is handled entirely in CSS (immediate, cheap)
-		   - here we only add a short tap-feedback animation for touch,
-		     and never block or delay the actual navigation */
-		const contactIcons = journey.querySelectorAll('.profile-details a, .support-button');
-		if (!reducedMotion) {
-			contactIcons.forEach((icon) => {
-				icon.addEventListener('click', () => {
-					icon.classList.remove('is-bursting');
-					void icon.offsetWidth; // restart animation
-					icon.classList.add('is-bursting');
-				});
-				icon.addEventListener('animationend', (event) => {
-					if (event.target === icon) icon.classList.remove('is-bursting');
-				});
-			});
-		}
-
-		const touchTargets = journey.querySelectorAll('.profile-details a, .support-button');
-		touchTargets.forEach((touchTarget) => {
-			touchTarget.addEventListener('pointerdown', (event) => {
-				if (event.pointerType !== 'touch' || reducedMotion) return;
-				touchTarget.classList.remove('is-bursting');
-				void touchTarget.offsetWidth;
-				touchTarget.classList.add('is-bursting');
-			});
-		});
 	}
 
 	/* -----------------------------------------------------------

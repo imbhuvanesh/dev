@@ -150,14 +150,17 @@ body.is-loading { overflow: hidden; }
 /* wordmark */
 .wordmark {
 	position: absolute; z-index: 1; top: 50%; left: 50%;
-	width: 100%; max-width: 100%;
+	width: min(94vw, 1400px); max-width: 100%;
 	transform: translate(-50%, -50%);
 	text-align: center;
-	font-size: clamp(6rem, 17vw, 17rem);
-	font-weight: 800; letter-spacing: -.08em; line-height: .8;
-	color: transparent;
+	font-family: "Chelsea Market", system-ui;
+	font-size: clamp(2.75rem, 12vw, 13rem);
+	font-weight: 700; letter-spacing: 0.02em; line-height: 1;
+	color: var(--purple);
 	-webkit-text-stroke: 1px rgba(216, 194, 255, .32);
-	white-space: nowrap;
+	white-space: normal;
+	overflow-wrap: anywhere;
+	overflow: hidden;
 	opacity: 0;
 }
 @keyframes developerTypography {
@@ -238,62 +241,11 @@ html.content-revealed .hero-wrap {
 .profile-icon-row { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 10px; }
 .profile-icon-row img { width: 52px; height: 52px; object-fit: contain; margin: 0; }
 
-.profile-details {
-	display: flex; justify-content: center; align-items: center; flex-wrap: wrap;
-	gap: 16px; margin: 0 auto 26px; width: min(560px, 100%);
+.contact-link {
+	display: inline-flex; align-items: center; justify-content: center;
+	width: 52px; height: 52px; margin: 0 5px 26px;
 }
-.profile-details a {
-	position: relative;
-	display: flex; align-items: center; justify-content: center;
-	width: 64px; height: 64px; gap: 0; overflow: hidden;
-	border: 1px solid var(--line); border-radius: 12px;
-	transition: width .35s ease, gap .35s ease, transform .25s, border-color .25s, background .25s;
-}
-.profile-details a:hover,
-.profile-details a:focus-visible {
-	border-color: var(--lime);
-	background: rgba(255, 255, 255, .08);
-	transform: translateY(-3px);
-}
-.profile-details img { width: 52px; height: 52px; object-fit: contain; border-radius: 10px; }
-.profile-details a span {
-	max-width: 0; overflow: hidden; opacity: 0; white-space: nowrap;
-	font: 10px 'DM Mono', monospace;
-	transition: max-width .35s ease, opacity .35s ease;
-}
-.profile-details a.is-revealed { width: auto; max-width: min(100%, 280px); padding: 0 14px; gap: 9px; border-radius: 24px; }
-.profile-details a.is-revealed span { max-width: 240px; opacity: 1; }
-
-/* quick, subtle icon motion on hover/focus (contact + support icons) —
-   transform-only, so surrounding layout never shifts and clicks are never blocked */
-.profile-details a img,
-.support-button img {
-	transition: transform .18s cubic-bezier(.34, 1.56, .64, 1);
-}
-.profile-details a:hover img,
-.profile-details a:focus-visible img,
-.support-button:hover img,
-.support-button:focus-visible img {
-	transform: scale(1.14) rotate(-4deg);
-}
-
-/* tap feedback (touch devices, no hover) */
-.profile-details a.is-bursting,
-.support-button.is-bursting { animation: contactBurst .22s cubic-bezier(.2, .8, .2, 1); }
-.profile-details a.is-bursting img,
-.support-button.is-bursting img { animation: contactShake .22s cubic-bezier(.2, .8, .2, 1); }
-@keyframes contactBurst {
-	50% { transform: scale(1.28); box-shadow: 0 0 0 8px rgba(255, 48, 48, .12); }
-	100% { transform: scale(1); }
-}
-@keyframes contactShake {
-	0% { transform: translateX(0) rotate(0) scale(1); }
-	20% { transform: translateX(-5px) rotate(-7deg) scale(1.08); }
-	40% { transform: translateX(5px) rotate(7deg) scale(1.14); }
-	60% { transform: translateX(-4px) rotate(-5deg) scale(1.08); }
-	80% { transform: translateX(3px) rotate(4deg) scale(1.03); }
-	100% { transform: translateX(0) rotate(0) scale(1); }
-}
+.contact-link img { width: 52px; height: 52px; object-fit: contain; border-radius: 10px; }
 
 .profile-reveal > img:not(.typing-svg) { display: inline-block; width: 52px; height: 52px; object-fit: contain; margin: 6px; vertical-align: middle; }
 .profile-reveal .support-button { display: inline-block; margin-top: 8px; }
@@ -304,27 +256,23 @@ html.content-revealed .hero-wrap {
    ========================================================= */
 @media (max-width: 700px) {
 	.hero-wrap { width: 154vw; min-width: 0; }
-	.wordmark { font-size: 24vw; }
+	.wordmark { letter-spacing: 0.01em; }
 	.background-image { inset: -20%; width: 140%; height: 140%; }
 
 	.profile-reveal { padding: 7vh 5vw 10vh; }
 	.profile-reveal > img:not(.typing-svg) { width: 44px; height: 44px; margin: 4px; }
 	.profile-icon-row img { width: 44px; height: 44px; }
-	.profile-details { gap: 10px; width: 100%; padding-inline: max(12px, 4vw); }
-	.profile-details a { width: 58px; height: 58px; }
-	.profile-details a.is-revealed { max-width: calc(100vw - 32px); }
-	.profile-details a.is-revealed span { max-width: calc(100vw - 120px); white-space: normal; overflow-wrap: anywhere; text-align: left; }
+	.contact-link { width: 44px; height: 44px; margin-inline: 4px; }
+	.contact-link img { width: 44px; height: 44px; }
 	.profile-reveal .support-button { max-width: 100%; overflow: hidden; }
 }
 
 @media (prefers-reduced-motion: reduce) {
 	html { scroll-behavior: auto; }
 	.preloader, .preloader-ink, .preloader-text,
-	.wordmark, .visual-stage::after,
+	.wordmark, .visual-stage::before,
 	.hero-wrap, html.content-revealed .hero-wrap, .profile-reveal,
-	.profile-details a img, .support-button img,
-	.profile-details a.is-bursting, .support-button.is-bursting,
-	.profile-details a.is-bursting img, .support-button.is-bursting img {
+	.contact-link img, .support-button img {
 		animation: none !important;
 		transition: none !important;
 	}
