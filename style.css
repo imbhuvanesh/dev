@@ -227,7 +227,8 @@ html.content-revealed .hero-wrap {
 	padding-top: 100vh;
 }
 
-.profile-reveal {
+/* ---- Intro section ---- */
+.intro-section {
 	position: relative; z-index: 6;
 	min-height: 100vh;
 	padding: 8vh 5vw 10vh;
@@ -237,29 +238,57 @@ html.content-revealed .hero-wrap {
 	transform: translateY(24px) scale(.96);
 	transition: opacity .9s cubic-bezier(.22, 1, .36, 1), transform .9s cubic-bezier(.22, 1, .36, 1);
 }
-.profile-reveal.is-visible {
+.intro-section.is-visible {
 	opacity: var(--content-scroll-opacity, 1);
 	transform: translateY(0) scale(1);
 }
 .profile-container { width: min(760px, 100%); margin: 0 auto; }
 
-.profile-reveal h3 { margin: 22px 0 12px; font-size: clamp(1rem, 2vw, 1.35rem); font-weight: 600; }
-.profile-reveal h2 { margin: 36px 0 18px; font-size: clamp(1.5rem, 4vw, 2.4rem); }
+.intro-section .typing-svg { display: block; width: min(600px, 100%); height: auto; margin: 0 auto; }
 
-.profile-reveal .typing-svg { display: block; width: min(600px, 100%); height: auto; margin: 0 auto; }
+/* ---- Generic section reveal ---- */
+.section-reveal {
+	position: relative; z-index: 6;
+	padding: 8vh 5vw 10vh;
+	text-align: center;
+	color: var(--ink);
+	opacity: 0;
+	transform: translateY(24px) scale(.96);
+	transition: opacity .9s cubic-bezier(.22, 1, .36, 1), transform .9s cubic-bezier(.22, 1, .36, 1);
+}
+.section-reveal.is-visible {
+	opacity: 1;
+	transform: translateY(0) scale(1);
+}
+.section-reveal h2 { margin: 0 0 18px; font-size: clamp(1.5rem, 4vw, 2.4rem); }
+.section-reveal h3 { margin: 22px 0 12px; font-size: clamp(1rem, 2vw, 1.35rem); font-weight: 600; }
 
+/* ---- About section ---- */
+.about-text {
+	margin: 0 auto 16px;
+	max-width: 560px;
+	font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+	line-height: 1.7;
+	color: var(--muted);
+}
+
+/* ---- Skills section ---- */
 .profile-icon-row { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 10px; }
 .profile-icon-row img { width: 52px; height: 52px; object-fit: contain; margin: 0; }
 
+/* ---- Contact section ---- */
+.contact-links-row {
+	display: flex; justify-content: center; align-items: center; flex-wrap: wrap;
+	gap: 4px; margin: 8px 0 24px;
+}
 .contact-link {
 	display: inline-flex; align-items: center; justify-content: center;
-	width: 52px; height: 52px; margin: 0 5px 26px;
+	width: 52px; height: 52px; margin: 0 5px;
 }
 .contact-link img { width: 52px; height: 52px; object-fit: contain; border-radius: 10px; }
 
-.profile-reveal > img:not(.typing-svg) { display: inline-block; width: 52px; height: 52px; object-fit: contain; margin: 6px; vertical-align: middle; }
-.profile-reveal .support-button { display: inline-block; margin-top: 8px; }
-.profile-reveal .support-button img { width: min(200px, 70vw); height: auto; }
+.contact-section .support-button { display: inline-block; margin-top: 8px; }
+.contact-section .support-button img { width: min(200px, 70vw); height: auto; }
 
 /* =========================================================
    Projects Section
@@ -349,14 +378,13 @@ html.content-revealed .hero-wrap {
 	.wordmark { letter-spacing: 0.01em; }
 	.background-image { inset: -20%; width: 140%; height: 140%; }
 
-	.profile-reveal { padding: 7vh 5vw 10vh; }
-	.profile-reveal > img:not(.typing-svg) { width: 44px; height: 44px; margin: 4px; }
+	.intro-section { padding: 7vh 5vw 10vh; }
+	.section-reveal { padding: 6vh 5vw 10vh; }
 	.profile-icon-row img { width: 44px; height: 44px; }
 	.contact-link { width: 44px; height: 44px; margin-inline: 4px; }
 	.contact-link img { width: 44px; height: 44px; }
-	.profile-reveal .support-button { max-width: 100%; overflow: hidden; }
+	.contact-section .support-button { max-width: 100%; overflow: hidden; }
 
-	.projects-section { padding: 6vh 5vw 10vh; }
 	.projects-grid { gap: 12px; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); }
 	.project-button { width: 70px; height: 70px; font-size: 0.8rem; }
 	.project-number { font-size: 1.1rem; }
@@ -366,8 +394,9 @@ html.content-revealed .hero-wrap {
 	html { scroll-behavior: auto; }
 	.preloader, .preloader-ink, .preloader-text,
 	.wordmark, .visual-stage::before,
-	.hero-wrap, html.content-revealed .hero-wrap, .profile-reveal,
-	.projects-section, .project-button,
+	.hero-wrap, html.content-revealed .hero-wrap,
+	.intro-section, .section-reveal,
+	.project-button,
 	.contact-link img, .support-button img {
 		animation: none !important;
 		transition: none !important;

@@ -42,28 +42,28 @@
 	}
 
 	/* -----------------------------------------------------------
-	   Profile section content
+	   Section content
 	   ----------------------------------------------------------- */
 	const journey = document.querySelector('.journey');
 	if (journey) {
-		journey.innerHTML = `<section class="profile-reveal profile-container" aria-label="Developer profile">
+		journey.innerHTML = `<section class="intro-section profile-container" aria-label="Introduction">
 			<img class="typing-svg" src="https://readme-typing-svg.herokuapp.com?font=Google+Sans&size=38&duration=3000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=600&lines=Hello+World!;I+am+Bhuvanesh!;Developer!;Freelancer!" alt="Hello World, I am Bhuvanesh, Developer, Freelancer" width="600" height="63" loading="eager">
+		</section>
+
+		<section class="about-section profile-container section-reveal" aria-label="About">
+			<h2>About</h2>
+			<p class="about-text">I'm a creative developer and freelancer based in Chennai, passionate about building thoughtful digital experiences that blend clean code with compelling design. From web apps to mobile interfaces, I turn ideas into polished, functional products.</p>
+			<p class="about-text">When I'm not coding, you'll find me exploring new tools, experimenting with visual storytelling, and pushing the boundaries of what the web can do.</p>
+		</section>
+
+		<section class="skills-section profile-container section-reveal" aria-label="Skills and tools">
 			<h3>Tech Stack</h3>
 			<div class="profile-icon-row"><img src="https://skillicons.dev/icons?i=java" alt="Java" loading="lazy"><img src="https://skillicons.dev/icons?i=html" alt="HTML" loading="lazy"><img src="https://skillicons.dev/icons?i=css" alt="CSS" loading="lazy"><img src="https://skillicons.dev/icons?i=js" alt="JavaScript" loading="lazy"><img src="https://skillicons.dev/icons?i=python" alt="Python" loading="lazy"><img src="https://skillicons.dev/icons?i=nodejs" alt="Node.js" loading="lazy"><img src="https://skillicons.dev/icons?i=mysql" alt="MySQL" loading="lazy"><img src="https://skillicons.dev/icons?i=supabase" alt="Supabase" loading="lazy"><img src="https://skillicons.dev/icons?i=flutter" alt="Flutter" loading="lazy"><img src="https://skillicons.dev/icons?i=git" alt="Git" loading="lazy"><img src="https://skillicons.dev/icons?i=linux" alt="Linux" loading="lazy"><img src="https://skillicons.dev/icons?i=vscode" alt="VS Code" loading="lazy"></div>
 			<h3>Creative Tools</h3>
 			<div class="profile-icon-row"><img src="https://skillicons.dev/icons?i=figma" alt="Figma" loading="lazy"><img src="https://skillicons.dev/icons?i=ps" alt="Adobe Photoshop" loading="lazy"><img src="https://skillicons.dev/icons?i=pr" alt="Adobe Premiere Pro" loading="lazy"><img src="https://skillicons.dev/icons?i=ae" alt="Adobe After Effects" loading="lazy"><img src="https://skillicons.dev/icons?i=notion" alt="Notion" loading="lazy"><img src="https://skillicons.dev/icons?i=obsidian" alt="Obsidian" loading="lazy"></div>
-			<h2>Contact</h2>
-			<a class="contact-link" href="https://maps.google.com/?q=Chennai,Tamil Nadu,India" target="_blank" rel="noopener noreferrer" aria-label="Location: Chennai, Tamil Nadu, India" title="Location"><img src="Images/icons/maps.png" alt="" loading="lazy"></a>
-			<a class="contact-link" href="mailto:iambhuvanesh.a@gmail.com" aria-label="Email: iambhuvanesh.a@gmail.com" title="Email"><img src="Images/icons/gmail.png" alt="" loading="lazy"></a>
-			<a class="contact-link" href="tel:+919944725379" aria-label="Phone: +91 99447 25379" title="Phone"><img src="Images/icons/phone.png" alt="" loading="lazy"></a>
-			<a class="contact-link" href="https://github.com/imbhuvanesh/" target="_blank" rel="noopener noreferrer" aria-label="GitHub: github.com/imbhuvanesh/" title="GitHub"><img src="Images/icons/github.png" alt="" loading="lazy"></a>
-			<a class="contact-link" href="https://linkedin.com/in/im-bhuvanesh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn: linkedin.com/in/im-bhuvanesh" title="LinkedIn"><img src="Images/icons/linkedin.png" alt="" loading="lazy"></a>
-			<a class="contact-link" href="https://instagram.com/bhuvy._" target="_blank" rel="noopener noreferrer" aria-label="Instagram: @bhuvy._" title="Instagram"><img src="Images/icons/instragram.png" alt="" loading="lazy"></a>
-			<h3>Support My Work</h3>
-			<a class="support-button" href="https://buymeacoffee.com/bhuvaneshh" target="_blank" rel="noopener noreferrer"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" loading="lazy"></a>
 		</section>
 
-		<section class="projects-section profile-container" aria-label="Projects portfolio">
+		<section class="projects-section profile-container section-reveal" aria-label="Projects portfolio">
 			<h2>Projects</h2>
 			<div class="projects-grid">
 				<article class="project-card">
@@ -91,53 +91,55 @@
 					<a class="project-button" href="https://imbhuvanesh.github.io/sunflower/" target="_blank" rel="noopener noreferrer">Sunflower</a>
 				</article>
 			</div>
+		</section>
+
+		<section class="contact-section profile-container section-reveal" aria-label="Contact">
+			<h2>Contact</h2>
+			<div class="contact-links-row">
+				<a class="contact-link" href="https://maps.google.com/?q=Chennai,Tamil Nadu,India" target="_blank" rel="noopener noreferrer" aria-label="Location: Chennai, Tamil Nadu, India" title="Location"><img src="Images/icons/maps.png" alt="" loading="lazy"></a>
+				<a class="contact-link" href="mailto:iambhuvanesh.a@gmail.com" aria-label="Email: iambhuvanesh.a@gmail.com" title="Email"><img src="Images/icons/gmail.png" alt="" loading="lazy"></a>
+				<a class="contact-link" href="tel:+919944725379" aria-label="Phone: +91 99447 25379" title="Phone"><img src="Images/icons/phone.png" alt="" loading="lazy"></a>
+				<a class="contact-link" href="https://github.com/imbhuvanesh/" target="_blank" rel="noopener noreferrer" aria-label="GitHub: github.com/imbhuvanesh/" title="GitHub"><img src="Images/icons/github.png" alt="" loading="lazy"></a>
+				<a class="contact-link" href="https://linkedin.com/in/im-bhuvanesh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn: linkedin.com/in/im-bhuvanesh" title="LinkedIn"><img src="Images/icons/linkedin.png" alt="" loading="lazy"></a>
+				<a class="contact-link" href="https://instagram.com/bhuvy._" target="_blank" rel="noopener noreferrer" aria-label="Instagram: @bhuvy._" title="Instagram"><img src="Images/icons/instragram.png" alt="" loading="lazy"></a>
+			</div>
+			<h3>Support My Work</h3>
+			<a class="support-button" href="https://buymeacoffee.com/bhuvaneshh" target="_blank" rel="noopener noreferrer"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" loading="lazy"></a>
 		</section>`;
 
-		const profileReveal = journey.querySelector('.profile-reveal');
+		/* ---- Generic section reveal ---- */
+		const revealHero = () => document.documentElement.classList.add('content-revealed');
+		const restoreHero = () => document.documentElement.classList.remove('content-revealed');
 
-		/* reveal the profile card once it's scrolled into view */
-		if (profileReveal) {
-			const revealHero = () => document.documentElement.classList.add('content-revealed');
-			const restoreHero = () => document.documentElement.classList.remove('content-revealed');
-
-			const updateProfileReveal = () => {
-				const profileTop = profileReveal.getBoundingClientRect().top;
-				const isVisible = profileTop <= window.innerHeight * 0.85;
-				profileReveal.classList.toggle('is-visible', isVisible);
-				if (!isVisible) {
-					/* content scrolled back out of view: bring the hero back
-					   before the profile card starts fading in again */
-					restoreHero();
-				} else if (reducedMotion) {
-					/* no CSS transition will fire without motion, so hide immediately */
-					revealHero();
+		const attachReveal = (section, { isIntro = false } = {}) => {
+			if (!section) return;
+			const update = () => {
+				const top = section.getBoundingClientRect().top;
+				const isVisible = top <= window.innerHeight * 0.85;
+				section.classList.toggle('is-visible', isVisible);
+				if (isIntro) {
+					if (!isVisible) {
+						restoreHero();
+					} else if (reducedMotion) {
+						revealHero();
+					}
 				}
 			};
+			if (isIntro) {
+				section.addEventListener('transitionend', (event) => {
+					if (event.target !== section || event.propertyName !== 'opacity') return;
+					if (section.classList.contains('is-visible')) revealHero();
+				});
+			}
+			window.addEventListener('scroll', update, { passive: true });
+			update();
+		};
 
-			/* once the profile card's own reveal transition finishes (i.e. it's
-			   fully faded/settled into place), smoothly fade the hero out so it
-			   never lingers behind or around the content */
-			profileReveal.addEventListener('transitionend', (event) => {
-				if (event.target !== profileReveal || event.propertyName !== 'opacity') return;
-				if (profileReveal.classList.contains('is-visible')) revealHero();
-			});
-
-			window.addEventListener('scroll', updateProfileReveal, { passive: true });
-			updateProfileReveal();
-		}
-
-		/* reveal the projects section once it's scrolled into view */
-		const projectsSection = journey.querySelector('.projects-section');
-		if (projectsSection) {
-			const updateProjectsReveal = () => {
-				const projectsTop = projectsSection.getBoundingClientRect().top;
-				const isVisible = projectsTop <= window.innerHeight * 0.85;
-				projectsSection.classList.toggle('is-visible', isVisible);
-			};
-
-			window.addEventListener('scroll', updateProjectsReveal, { passive: true });
-			updateProjectsReveal();
-		}
+		attachReveal(journey.querySelector('.intro-section'), { isIntro: true });
+		attachReveal(journey.querySelector('.about-section'));
+		attachReveal(journey.querySelector('.skills-section'));
+		attachReveal(journey.querySelector('.projects-section'));
+		attachReveal(journey.querySelector('.contact-section'));
 
 	}
 
