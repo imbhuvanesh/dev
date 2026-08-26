@@ -71,31 +71,61 @@
 			<div class="projects-grid">
 				<article class="project-card">
 					<div class="project-number">01</div>
+					<div class="project-icons">
+						<a class="project-icon" href="https://imbhuvanesh.github.io/B-minds/" target="_blank" rel="noopener noreferrer" aria-label="B-Minds Web Version" title="Web Version">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+						</a>
+					</div>
 					<a class="project-button" href="https://imbhuvanesh.github.io/B-minds/" target="_blank" rel="noopener noreferrer">B-Minds</a>
 				</article>
 
 				<article class="project-card">
 					<div class="project-number">02</div>
+					<div class="project-icons">
+						<a class="project-icon" href="https://imbhuvanesh.github.io/Bhuvanesh/" target="_blank" rel="noopener noreferrer" aria-label="Bhuvanesh Portfolio Web Version" title="Web Version">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+						</a>
+					</div>
 					<a class="project-button" href="https://imbhuvanesh.github.io/Bhuvanesh/" target="_blank" rel="noopener noreferrer">Bhuvanesh Portfolio</a>
 				</article>
 
 				<article class="project-card">
 					<div class="project-number">03</div>
+					<div class="project-icons">
+						<a class="project-icon" href="https://imbhuvanesh.github.io/DG/" target="_blank" rel="noopener noreferrer" aria-label="DIGI NEXUZ Web Version" title="Web Version">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+						</a>
+					</div>
 					<a class="project-button" href="https://imbhuvanesh.github.io/DG/" target="_blank" rel="noopener noreferrer">DIGI NEXUZ</a>
 				</article>
 
 				<article class="project-card">
 					<div class="project-number">04</div>
+					<div class="project-icons">
+						<a class="project-icon" href="https://imbhuvanesh.github.io/ifixon/" target="_blank" rel="noopener noreferrer" aria-label="IFIXON Web Version" title="Web Version">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+						</a>
+					</div>
 					<a class="project-button" href="https://imbhuvanesh.github.io/ifixon/" target="_blank" rel="noopener noreferrer">IFIXON</a>
 				</article>
 
-			<article class="project-card">
-				<div class="project-number">05</div>
-				<a class="project-button" href="https://imbhuvanesh.github.io/sunflower/" target="_blank" rel="noopener noreferrer">Sunflower</a>
-			</article>
+				<article class="project-card">
+					<div class="project-number">05</div>
+					<div class="project-icons">
+						<a class="project-icon" href="https://imbhuvanesh.github.io/sunflower/" target="_blank" rel="noopener noreferrer" aria-label="Sunflower Web Version" title="Web Version">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+						</a>
+					</div>
+					<a class="project-button" href="https://imbhuvanesh.github.io/sunflower/" target="_blank" rel="noopener noreferrer">Sunflower</a>
+				</article>
 
 				<article class="project-card">
 					<div class="project-number">06</div>
+					<div class="project-icons">
+						<a class="project-icon" href="https://github.com/imbhuvanesh/Bills" target="_blank" rel="noopener noreferrer" aria-label="Bills App Source Code" title="App Source">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+						</a>
+					</div>
 					<a class="project-button" href="https://github.com/imbhuvanesh/Bills" target="_blank" rel="noopener noreferrer">Bills</a>
 				</article>
 		</div>

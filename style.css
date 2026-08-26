@@ -368,6 +368,10 @@ blockquote.about-text {
 	transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+.project-card:has(.project-icons) {
+	grid-template-columns: auto auto 1fr;
+}
+
 .project-card.card-visible {
 	opacity: 1;
 	transform: translateY(0);
@@ -409,6 +413,35 @@ blockquote.about-text {
 	box-shadow: 0 4px 20px rgba(0, 230, 118, 0.15);
 }
 
+.project-icons {
+	display: flex;
+	gap: 8px;
+}
+
+.project-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	border-radius: 8px;
+	border: 1px solid var(--line);
+	background: rgba(255, 255, 255, 0.03);
+	color: var(--muted);
+	transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+	text-decoration: none;
+	flex-shrink: 0;
+}
+
+.project-icon:hover,
+.project-icon:focus {
+	border-color: var(--green);
+	background: rgba(0, 230, 118, 0.08);
+	color: var(--green);
+	box-shadow: 0 2px 12px rgba(0, 230, 118, 0.2);
+	transform: scale(1.1);
+}
+
 /* =========================================================
    Responsive breakpoints
    ========================================================= */
@@ -441,6 +474,8 @@ blockquote.about-text {
 	.project-card { gap: 10px; }
 	.project-button { padding: 12px 14px; font-size: 0.8rem; }
 	.project-number { font-size: 0.85rem; }
+	.project-icon { width: 32px; height: 32px; }
+	.project-icon svg { width: 16px; height: 16px; }
 }
 
 /* ---- Standard phones (≤480px) ---- */
