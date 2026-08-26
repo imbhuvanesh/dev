@@ -277,6 +277,15 @@ html.content-revealed .hero-wrap {
 	line-height: 1.8;
 	color: var(--muted);
 }
+.about-text strong {
+	color: inherit;
+	text-shadow: none;
+}
+.about-text strong.word-active {
+	color: #00e676;
+	text-shadow: 0 0 14px rgba(0, 230, 118, 0.5);
+	transition: color 3s ease, text-shadow 3s ease;
+}
 .about-text blockquote,
 blockquote.about-text {
 	margin: 0 auto 18px;
@@ -288,29 +297,10 @@ blockquote.about-text {
 /* ---- Skills section ---- */
 .profile-icon-row { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 14px; }
 .icon-wrap {
-	position: relative;
 	display: inline-block;
-	overflow: hidden;
-	border-radius: 10px;
 }
 .icon-wrap img {
 	width: 52px; height: 52px; object-fit: contain; margin: 0;
-	opacity: 1;
-	transform: scale(1);
-	display: block;
-}
-.icon-wrap::after {
-	content: '';
-	position: absolute;
-	top: 0; left: -75%;
-	width: 50%; height: 100%;
-	background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.6) 45%, rgba(255,255,255,0.3) 50%, transparent 55%);
-	animation: iconShine 5s ease-in-out infinite;
-	pointer-events: none;
-}
-@keyframes iconShine {
-	0%, 60% { left: -75%; }
-	100% { left: 125%; }
 }
 
 
@@ -322,20 +312,9 @@ blockquote.about-text {
 .contact-link {
 	display: inline-flex; align-items: center; justify-content: center;
 	width: 52px; height: 52px; margin: 0 5px;
-	position: relative;
-	overflow: hidden;
 	border-radius: 10px;
 }
 .contact-link img { width: 52px; height: 52px; object-fit: contain; border-radius: 10px; display: block; }
-.contact-link::after {
-	content: '';
-	position: absolute;
-	top: 0; left: -75%;
-	width: 50%; height: 100%;
-	background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.6) 45%, rgba(255,255,255,0.3) 50%, transparent 55%);
-	animation: iconShine 5s ease-in-out infinite;
-	pointer-events: none;
-}
 
 .contact-section .support-button { display: inline-block; margin-top: 8px; }
 .contact-section .support-button img { width: min(200px, 70vw); height: auto; }

@@ -62,13 +62,14 @@
 			<p class="about-text">I'm still learning, still experimenting, and still creating.</p>
 			<blockquote class="about-text"><strong>"Learning and growing every day!"</strong></blockquote>
 		</section>
+
 		<div class="section-spacer" aria-hidden="true"></div>
 
 		<section class="skills-section profile-container section-reveal" aria-label="Skills and tools">
 			<h3>Tech Stack</h3>
-			<div class="profile-icon-row"><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=java" alt="Java" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=html" alt="HTML" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=css" alt="CSS" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=js" alt="JavaScript" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=python" alt="Python" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=nodejs" alt="Node.js" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=mysql" alt="MySQL" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=supabase" alt="Supabase" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=flutter" alt="Flutter" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=git" alt="Git" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=linux" alt="Linux" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=vscode" alt="VS Code" loading="lazy"></span></div>
+			<div class="profile-icon-row"><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=css" alt="CSS" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=flutter" alt="Flutter" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=git" alt="Git" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=html" alt="HTML" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=java" alt="Java" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=js" alt="JavaScript" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=linux" alt="Linux" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=mysql" alt="MySQL" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=nodejs" alt="Node.js" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=python" alt="Python" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=supabase" alt="Supabase" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=vscode" alt="VS Code" loading="lazy"></span></div>
 			<h3>Creative Tools</h3>
-			<div class="profile-icon-row"><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=figma" alt="Figma" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=ps" alt="Adobe Photoshop" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=pr" alt="Adobe Premiere Pro" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=ae" alt="Adobe After Effects" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=notion" alt="Notion" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=obsidian" alt="Obsidian" loading="lazy"></span></div>
+			<div class="profile-icon-row"><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=ae" alt="Adobe After Effects" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=ps" alt="Adobe Photoshop" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=pr" alt="Adobe Premiere Pro" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=figma" alt="Figma" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=notion" alt="Notion" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=obsidian" alt="Obsidian" loading="lazy"></span></div>
 		</section>
 		<div class="section-spacer" aria-hidden="true"></div>
 
@@ -118,6 +119,28 @@
 		</section>
 		<div class="section-spacer" aria-hidden="true"></div>
 		<div class="section-spacer" aria-hidden="true"></div>`;
+
+		/* ---- About word highlight: top to bottom, cumulative ---- */
+		const aboutStrongWords = Array.from(document.querySelectorAll('.about-text strong'));
+		let aboutWordIndex = 0;
+		const highlightAboutWord = () => {
+			if (aboutWordIndex >= aboutStrongWords.length) return;
+			aboutStrongWords[aboutWordIndex].classList.add('word-active');
+			aboutWordIndex++;
+		};
+		const aboutObserver = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					const aboutInterval = setInterval(() => {
+						if (aboutWordIndex >= aboutStrongWords.length) { clearInterval(aboutInterval); return; }
+						highlightAboutWord();
+					}, 3000);
+					aboutObserver.disconnect();
+				}
+			});
+		}, { threshold: 0.3 });
+		const aboutSection = journey.querySelector('.about-section');
+		if (aboutSection) aboutObserver.observe(aboutSection);
 
 		/* ---- Cinematic staggered reveal ---- */
 		const revealHero = () => document.documentElement.classList.add('content-revealed');
@@ -194,7 +217,6 @@
 			});
 			projectObserver.observe(projectsSection, { attributes: true, attributeFilter: ['class'] });
 		}
-
 
 
 		/* ---- Loop: scroll back to hero at page bottom ---- */
