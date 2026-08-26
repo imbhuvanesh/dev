@@ -89,11 +89,16 @@
 					<a class="project-button" href="https://imbhuvanesh.github.io/ifixon/" target="_blank" rel="noopener noreferrer">IFIXON</a>
 				</article>
 
+			<article class="project-card">
+				<div class="project-number">05</div>
+				<a class="project-button" href="https://imbhuvanesh.github.io/sunflower/" target="_blank" rel="noopener noreferrer">Sunflower</a>
+			</article>
+
 				<article class="project-card">
-					<div class="project-number">05</div>
-					<a class="project-button" href="https://imbhuvanesh.github.io/sunflower/" target="_blank" rel="noopener noreferrer">Sunflower</a>
+					<div class="project-number">06</div>
+					<a class="project-button" href="https://github.com/imbhuvanesh/Bills" target="_blank" rel="noopener noreferrer">Bills</a>
 				</article>
-			</div>
+		</div>
 		</section>
 		<div class="section-spacer" aria-hidden="true"></div>
 
