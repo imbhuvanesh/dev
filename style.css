@@ -262,6 +262,86 @@ html.content-revealed .hero-wrap {
 .profile-reveal .support-button img { width: min(200px, 70vw); height: auto; }
 
 /* =========================================================
+   Projects Section
+   ========================================================= */
+.projects-section {
+	position: relative;
+	z-index: 6;
+	min-height: auto;
+	padding: 8vh 5vw 10vh;
+	text-align: center;
+	color: var(--ink);
+	opacity: 0;
+	transform: translateY(24px) scale(0.96);
+	transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.projects-section.is-visible {
+	opacity: 1;
+	transform: translateY(0) scale(1);
+}
+
+.projects-section h2 {
+	margin: 0 0 48px;
+	font-size: clamp(1.5rem, 4vw, 2.4rem);
+}
+
+.projects-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+	gap: 16px;
+	margin-top: 32px;
+	justify-content: center;
+}
+
+.project-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 8px;
+	text-align: center;
+	transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-number {
+	font-family: 'DM Mono', monospace;
+	font-size: 1.4rem;
+	font-weight: 600;
+	color: var(--muted);
+	letter-spacing: 0.08em;
+}
+
+.project-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 80px;
+	height: 80px;
+	padding: 12px;
+	font-size: clamp(0.8rem, 2vw, 0.95rem);
+	font-weight: 600;
+	letter-spacing: 0.03em;
+	text-align: center;
+	word-break: break-word;
+	color: var(--ink);
+	border: 2px solid var(--purple);
+	border-radius: 12px;
+	background: rgba(255, 48, 48, 0.08);
+	transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+	cursor: pointer;
+	text-decoration: none;
+	line-height: 1.2;
+}
+
+.project-button:hover,
+.project-button:focus {
+	background: var(--purple);
+	color: var(--black);
+	box-shadow: 0 8px 24px rgba(255, 48, 48, 0.3);
+	transform: scale(1.08);
+}
+
+/* =========================================================
    Responsive breakpoints
    ========================================================= */
 @media (max-width: 700px) {
@@ -275,6 +355,11 @@ html.content-revealed .hero-wrap {
 	.contact-link { width: 44px; height: 44px; margin-inline: 4px; }
 	.contact-link img { width: 44px; height: 44px; }
 	.profile-reveal .support-button { max-width: 100%; overflow: hidden; }
+
+	.projects-section { padding: 6vh 5vw 10vh; }
+	.projects-grid { gap: 12px; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); }
+	.project-button { width: 70px; height: 70px; font-size: 0.8rem; }
+	.project-number { font-size: 1.1rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -282,6 +367,7 @@ html.content-revealed .hero-wrap {
 	.preloader, .preloader-ink, .preloader-text,
 	.wordmark, .visual-stage::before,
 	.hero-wrap, html.content-revealed .hero-wrap, .profile-reveal,
+	.projects-section, .project-button,
 	.contact-link img, .support-button img {
 		animation: none !important;
 		transition: none !important;

@@ -61,6 +61,36 @@
 			<a class="contact-link" href="https://instagram.com/bhuvy._" target="_blank" rel="noopener noreferrer" aria-label="Instagram: @bhuvy._" title="Instagram"><img src="Images/icons/instragram.png" alt="" loading="lazy"></a>
 			<h3>Support My Work</h3>
 			<a class="support-button" href="https://buymeacoffee.com/bhuvaneshh" target="_blank" rel="noopener noreferrer"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" loading="lazy"></a>
+		</section>
+
+		<section class="projects-section profile-container" aria-label="Projects portfolio">
+			<h2>Projects</h2>
+			<div class="projects-grid">
+				<article class="project-card">
+					<div class="project-number">01</div>
+					<a class="project-button" href="https://imbhuvanesh.github.io/B-minds/" target="_blank" rel="noopener noreferrer">B-Minds</a>
+				</article>
+
+				<article class="project-card">
+					<div class="project-number">02</div>
+					<a class="project-button" href="https://imbhuvanesh.github.io/Bhuvanesh/" target="_blank" rel="noopener noreferrer">Bhuvanesh Portfolio</a>
+				</article>
+
+				<article class="project-card">
+					<div class="project-number">03</div>
+					<a class="project-button" href="https://imbhuvanesh.github.io/DG/" target="_blank" rel="noopener noreferrer">DIGI NEXUZ</a>
+				</article>
+
+				<article class="project-card">
+					<div class="project-number">04</div>
+					<a class="project-button" href="https://imbhuvanesh.github.io/ifixon/" target="_blank" rel="noopener noreferrer">IFIXON</a>
+				</article>
+
+				<article class="project-card">
+					<div class="project-number">05</div>
+					<a class="project-button" href="https://imbhuvanesh.github.io/sunflower/" target="_blank" rel="noopener noreferrer">Sunflower</a>
+				</article>
+			</div>
 		</section>`;
 
 		const profileReveal = journey.querySelector('.profile-reveal');
@@ -94,6 +124,19 @@
 
 			window.addEventListener('scroll', updateProfileReveal, { passive: true });
 			updateProfileReveal();
+		}
+
+		/* reveal the projects section once it's scrolled into view */
+		const projectsSection = journey.querySelector('.projects-section');
+		if (projectsSection) {
+			const updateProjectsReveal = () => {
+				const projectsTop = projectsSection.getBoundingClientRect().top;
+				const isVisible = projectsTop <= window.innerHeight * 0.85;
+				projectsSection.classList.toggle('is-visible', isVisible);
+			};
+
+			window.addEventListener('scroll', updateProjectsReveal, { passive: true });
+			updateProjectsReveal();
 		}
 
 	}
