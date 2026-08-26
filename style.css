@@ -177,6 +177,15 @@ html.loop-reveal .wordmark {
 	transition: opacity .9s cubic-bezier(.22, 1, .36, 1), filter .9s cubic-bezier(.22, 1, .36, 1);
 }
 
+html.content-revealed .wordmark {
+	color: var(--black);
+	opacity: 1;
+	filter: blur(4px);
+	transition: color .6s cubic-bezier(.22, 1, .36, 1), filter .6s cubic-bezier(.22, 1, .36, 1), text-shadow .6s ease-out;
+	text-shadow: 0 0 0 rgba(255, 48, 48, 0);
+	-webkit-text-stroke: 1px rgba(5, 5, 6, 0);
+}
+
 /* hero image: single source of truth for the scroll-synced zoom/reveal,
    so mobile and desktop always share the same behaviour */
 .hero-wrap {
@@ -197,9 +206,10 @@ html.loop-reveal .hero-wrap {
 /* once the profile content has fully revealed, fade the hero out completely
    so it never lingers, half-visible, behind or around the content */
 html.content-revealed .hero-wrap {
-	transition: opacity .05s ease-out, transform .16s linear, filter 1s cubic-bezier(.22, 1, .36, 1);
+	transition: opacity .6s cubic-bezier(.22, 1, .36, 1), transform .6s cubic-bezier(.22, 1, .36, 1), filter .6s cubic-bezier(.22, 1, .36, 1);
 	opacity: 0;
 	pointer-events: none;
+	filter: blur(8px);
 }
 .hero-image {
 	display: block;
