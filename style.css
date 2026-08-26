@@ -10,6 +10,7 @@
 	--line: rgba(255, 255, 255, .15);
 	--purple: #ff3030;
 	--lime: #ff3030;
+	--green: #00e676;
 
 	/* scroll-driven values, updated by script.js */
 	--hero-scroll-scale: 1;
@@ -128,12 +129,7 @@ body.is-loading { overflow: hidden; }
 
 .stage-grid {
 	position: absolute; inset: 0;
-	opacity: .18;
-	background-image:
-		linear-gradient(rgba(255, 255, 255, .08) 1px, transparent 1px),
-		linear-gradient(90deg, rgba(255, 255, 255, .08) 1px, transparent 1px);
-	background-size: 72px 72px;
-	mask-image: linear-gradient(to bottom, black, transparent 88%);
+	display: none;
 }
 
 .stage-noise {
@@ -172,6 +168,7 @@ body.preloader-complete .wordmark {
 	animation: developerTypography 1.4s cubic-bezier(.2, .8, .2, 1) both;
 }
 html.loop-reveal .wordmark {
+	animation: none;
 	opacity: 0;
 	filter: blur(8px);
 	transition: opacity .9s cubic-bezier(.22, 1, .36, 1), filter .9s cubic-bezier(.22, 1, .36, 1);
@@ -200,6 +197,8 @@ html.content-revealed .wordmark {
 }
 html.loop-reveal .hero-wrap {
 	transition: transform .16s linear, opacity .16s linear, filter 1s cubic-bezier(.22, 1, .36, 1);
+	opacity: 0;
+	pointer-events: none;
 	filter: blur(4px);
 }
 
@@ -282,7 +281,7 @@ html.content-revealed .hero-wrap {
 	text-shadow: none;
 }
 .about-text strong.word-active {
-	color: #00e676;
+	color: var(--green);
 	text-shadow: 0 0 14px rgba(0, 230, 118, 0.5);
 	transition: color 3s ease, text-shadow 3s ease;
 }
@@ -313,6 +312,12 @@ blockquote.about-text {
 	display: inline-flex; align-items: center; justify-content: center;
 	width: 52px; height: 52px; margin: 0 5px;
 	border-radius: 10px;
+	transition: all 0.3s ease;
+}
+.contact-link:hover,
+.contact-link:focus {
+	box-shadow: 0 0 12px rgba(0, 230, 118, 0.4);
+	transform: scale(1.1);
 }
 .contact-link img { width: 52px; height: 52px; object-fit: contain; border-radius: 10px; display: block; }
 
@@ -398,10 +403,10 @@ blockquote.about-text {
 
 .project-button:hover,
 .project-button:focus {
-	border-color: var(--purple);
-	background: rgba(255, 48, 48, 0.08);
+	border-color: var(--green);
+	background: rgba(0, 230, 118, 0.08);
 	color: #fff;
-	box-shadow: 0 4px 20px rgba(255, 48, 48, 0.15);
+	box-shadow: 0 4px 20px rgba(0, 230, 118, 0.15);
 }
 
 /* =========================================================

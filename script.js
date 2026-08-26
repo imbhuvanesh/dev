@@ -1,8 +1,6 @@
 (() => {
 	'use strict';
 
-	const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
 	/* -----------------------------------------------------------
 	   Preloader
 	   ----------------------------------------------------------- */
@@ -47,11 +45,6 @@
 	const journey = document.querySelector('.journey');
 	if (journey) {
 		journey.innerHTML = `<div class="section-spacer" aria-hidden="true"></div>
-
-		<section class="intro-section profile-container" aria-label="Introduction">
-			<img class="typing-svg" src="https://readme-typing-svg.herokuapp.com?font=Google+Sans&size=38&duration=3000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=600&lines=Hello+World!;I+am+Bhuvanesh!;Developer!;Freelancer!" alt="Hello World, I am Bhuvanesh, Developer, Freelancer" width="600" height="63" loading="eager">
-		</section>
-		<div class="section-spacer" aria-hidden="true"></div>
 
 		<section class="about-section profile-container section-reveal" aria-label="About">
 			<h2>About</h2>
@@ -143,11 +136,9 @@
 		if (aboutSection) aboutObserver.observe(aboutSection);
 
 		/* ---- Cinematic staggered reveal ---- */
-		const revealHero = () => document.documentElement.classList.add('content-revealed');
 		const restoreHero = () => document.documentElement.classList.remove('content-revealed');
 
 		const cascadeSections = [
-			{ el: journey.querySelector('.intro-section'), isIntro: true },
 			{ el: journey.querySelector('.about-section') },
 			{ el: journey.querySelector('.skills-section') },
 			{ el: journey.querySelector('.projects-section') },
@@ -170,7 +161,6 @@
 				if (!inView) {
 					if (pending.has(index)) { clearTimeout(pending.get(index)); pending.delete(index); }
 					item.el.classList.remove('is-visible');
-					if (item.isIntro) restoreHero();
 					return;
 				}
 
@@ -178,21 +168,13 @@
 					const prevReady = !prev || prev.classList.contains('is-visible');
 					if (!prevReady) return;
 
-					const delay = item.isIntro ? 0 : staggerDelay;
-					pending.set(index, setTimeout(() => {
-						pending.delete(index);
-						item.el.classList.add('is-visible');
-						if (item.isIntro && reducedMotion) revealHero();
-					}, delay));
+				const delay = staggerDelay;
+				pending.set(index, setTimeout(() => {
+					pending.delete(index);
+					item.el.classList.add('is-visible');
+				}, delay));
 				}
 			};
-
-			if (item.isIntro) {
-				item.el.addEventListener('transitionend', (event) => {
-					if (event.target !== item.el || event.propertyName !== 'opacity') return;
-					if (item.el.classList.contains('is-visible')) revealHero();
-				});
-			}
 
 			window.addEventListener('scroll', update, { passive: true });
 			update();
