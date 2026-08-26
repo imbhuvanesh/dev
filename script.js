@@ -55,8 +55,12 @@
 
 		<section class="about-section profile-container section-reveal" aria-label="About">
 			<h2>About</h2>
-			<p class="about-text">I'm a creative developer and freelancer based in Chennai, passionate about building thoughtful digital experiences that blend clean code with compelling design. From web apps to mobile interfaces, I turn ideas into polished, functional products.</p>
-			<p class="about-text">When I'm not coding, you'll find me exploring new tools, experimenting with visual storytelling, and pushing the boundaries of what the web can do.</p>
+			<p class="about-text">Hi, I'm <strong>Bhuvanesh A</strong>.</p>
+			<p class="about-text">I'm a <strong>Creative Developer & Freelancer</strong> who loves combining technology and creativity to build things that are not just functional, but also interesting to experience.</p>
+			<p class="about-text">I have around <strong>2 years of experience as an Assistant Developer and Freelancer</strong>, working across <strong>web development, application development, creative frontend experiences, design, video editing, and digital content creation</strong>.</p>
+			<p class="about-text">For me, every project is a chance to explore something new. I like bringing <strong>code, visual design, storytelling, experimentation, and problem-solving</strong> together to turn simple ideas into something meaningful and visually appealing.</p>
+			<p class="about-text">I'm still learning, still experimenting, and still creating.</p>
+			<blockquote class="about-text"><strong>"Learning and growing every day!"</strong></blockquote>
 		</section>
 		<div class="section-spacer" aria-hidden="true"></div>
 
@@ -102,12 +106,12 @@
 		<section class="contact-section profile-container section-reveal" aria-label="Contact">
 			<h2>Contact</h2>
 			<div class="contact-links-row">
-				<a class="contact-link" href="https://maps.google.com/?q=Chennai,Tamil Nadu,India" target="_blank" rel="noopener noreferrer" aria-label="Location: Chennai, Tamil Nadu, India" title="Location"><img src="Images/icons/maps.png" alt="" loading="lazy"></a>
 				<a class="contact-link" href="mailto:iambhuvanesh.a@gmail.com" aria-label="Email: iambhuvanesh.a@gmail.com" title="Email"><img src="Images/icons/gmail.png" alt="" loading="lazy"></a>
-				<a class="contact-link" href="tel:+919944725379" aria-label="Phone: +91 99447 25379" title="Phone"><img src="Images/icons/phone.png" alt="" loading="lazy"></a>
 				<a class="contact-link" href="https://github.com/imbhuvanesh/" target="_blank" rel="noopener noreferrer" aria-label="GitHub: github.com/imbhuvanesh/" title="GitHub"><img src="Images/icons/github.png" alt="" loading="lazy"></a>
-				<a class="contact-link" href="https://linkedin.com/in/im-bhuvanesh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn: linkedin.com/in/im-bhuvanesh" title="LinkedIn"><img src="Images/icons/linkedin.png" alt="" loading="lazy"></a>
 				<a class="contact-link" href="https://instagram.com/bhuvy._" target="_blank" rel="noopener noreferrer" aria-label="Instagram: @bhuvy._" title="Instagram"><img src="Images/icons/instragram.png" alt="" loading="lazy"></a>
+				<a class="contact-link" href="https://linkedin.com/in/im-bhuvanesh" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn: linkedin.com/in/im-bhuvanesh" title="LinkedIn"><img src="Images/icons/linkedin.png" alt="" loading="lazy"></a>
+				<a class="contact-link" href="https://maps.google.com/?q=Chennai,Tamil Nadu,India" target="_blank" rel="noopener noreferrer" aria-label="Location: Chennai, Tamil Nadu, India" title="Location"><img src="Images/icons/maps.png" alt="" loading="lazy"></a>
+				<a class="contact-link" href="tel:+919944725379" aria-label="Phone: +91 99447 25379" title="Phone"><img src="Images/icons/phone.png" alt="" loading="lazy"></a>
 			</div>
 			<h3>Support My Work</h3>
 			<a class="support-button" href="https://buymeacoffee.com/bhuvaneshh" target="_blank" rel="noopener noreferrer"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" loading="lazy"></a>
@@ -190,6 +194,8 @@
 			});
 			projectObserver.observe(projectsSection, { attributes: true, attributeFilter: ['class'] });
 		}
+
+
 
 		/* ---- Loop: scroll back to hero at page bottom ---- */
 		let looping = false;

@@ -249,13 +249,13 @@ html.content-revealed .hero-wrap {
 /* ---- Section spacers ---- */
 .section-spacer {
 	width: 100%;
-	height: 28vh;
+	height: 34vh;
 }
 
 /* ---- Generic section reveal ---- */
 .section-reveal {
 	position: relative; z-index: 6;
-	padding: 8vh 5vw 10vh;
+	padding: 10vh 5vw 12vh;
 	text-align: center;
 	color: var(--ink);
 	opacity: 0;
@@ -266,21 +266,33 @@ html.content-revealed .hero-wrap {
 	opacity: 1;
 	transform: translateY(0) scale(1);
 }
-.section-reveal h2 { margin: 0 0 18px; font-size: clamp(1.5rem, 4vw, 2.4rem); }
-.section-reveal h3 { margin: 22px 0 12px; font-size: clamp(1rem, 2vw, 1.35rem); font-weight: 600; }
+.section-reveal h2 { margin: 0 0 24px; font-size: clamp(1.5rem, 4vw, 2.4rem); }
+.section-reveal h3 { margin: 28px 0 16px; font-size: clamp(1rem, 2vw, 1.35rem); font-weight: 600; }
 
 /* ---- About section ---- */
 .about-text {
-	margin: 0 auto 16px;
+	margin: 0 auto 18px;
 	max-width: 560px;
 	font-size: clamp(0.95rem, 1.8vw, 1.1rem);
-	line-height: 1.7;
+	line-height: 1.8;
 	color: var(--muted);
+}
+.about-text blockquote,
+blockquote.about-text {
+	margin: 0 auto 18px;
+	max-width: 560px;
+	padding: 0;
+	font-style: normal;
 }
 
 /* ---- Skills section ---- */
-.profile-icon-row { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 10px; }
-.profile-icon-row img { width: 52px; height: 52px; object-fit: contain; margin: 0; }
+.profile-icon-row { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 14px; }
+.profile-icon-row img {
+	width: 52px; height: 52px; object-fit: contain; margin: 0;
+	opacity: 1;
+	transform: scale(1);
+}
+
 
 /* ---- Contact section ---- */
 .contact-links-row {
@@ -303,7 +315,7 @@ html.content-revealed .hero-wrap {
 	position: relative;
 	z-index: 6;
 	min-height: auto;
-	padding: 8vh 5vw 10vh;
+	padding: 10vh 5vw 12vh;
 	text-align: center;
 	color: var(--ink);
 	opacity: 0;
@@ -391,7 +403,7 @@ html.content-revealed .hero-wrap {
 	.wordmark { letter-spacing: 0; font-size: clamp(2rem, 14vw, 3rem); }
 	.background-image { inset: -25%; width: 150%; height: 150%; }
 
-	.section-spacer { height: 18vh; }
+	.section-spacer { height: 26vh; }
 
 	.intro-section { padding: 5vh 4vw 8vh; min-height: 90vh; }
 	.section-reveal { padding: 5vh 4vw 8vh; }
@@ -421,7 +433,7 @@ html.content-revealed .hero-wrap {
 	.wordmark { letter-spacing: 0.01em; }
 	.background-image { inset: -20%; width: 140%; height: 140%; }
 
-	.section-spacer { height: 22vh; }
+	.section-spacer { height: 28vh; }
 
 	.intro-section { padding: 6vh 5vw 8vh; min-height: 95vh; }
 	.section-reveal { padding: 5vh 5vw 8vh; }
@@ -441,7 +453,7 @@ html.content-revealed .hero-wrap {
 	.wordmark { letter-spacing: 0.01em; }
 	.background-image { inset: -20%; width: 140%; height: 140%; }
 
-	.section-spacer { height: 24vh; }
+	.section-spacer { height: 30vh; }
 
 	.intro-section { padding: 7vh 5vw 10vh; }
 	.section-reveal { padding: 6vh 5vw 10vh; }
@@ -460,7 +472,7 @@ html.content-revealed .hero-wrap {
 @media (min-width: 701px) and (max-width: 1024px) {
 	.hero-wrap { width: min(90vw, 1200px); min-width: 0; }
 
-	.section-spacer { height: 26vh; }
+	.section-spacer { height: 32vh; }
 
 	.intro-section { padding: 8vh 6vw 10vh; }
 	.section-reveal { padding: 8vh 6vw 10vh; }
@@ -476,7 +488,7 @@ html.content-revealed .hero-wrap {
 @media (min-width: 1400px) {
 	.hero-wrap { width: min(80vw, 1500px); }
 
-	.section-spacer { height: 30vh; }
+	.section-spacer { height: 36vh; }
 
 	.profile-container { width: min(800px, 85%); }
 	.projects-grid { max-width: 560px; }
