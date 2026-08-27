@@ -50,7 +50,7 @@
 			<h2>About</h2>
 			<p class="about-text">Hi, I'm <strong>Bhuvanesh A</strong>.</p>
 			<p class="about-text">I'm a <strong>Creative Developer & Freelancer</strong> who loves combining technology and creativity to build things that are not just functional, but also interesting to experience.</p>
-			<p class="about-text">I have around <strong>2 years of experience as an Assistant Developer and Freelancer</strong>, working across <strong>web development, application development, creative frontend experiences, design, video editing, and digital content creation</strong>.</p>
+			<p class="about-text">I have around <strong>2 years of experience as an Assistant Developer and Freelancer</strong>, working across <strong class="red">web development, application development, creative frontend experiences, design, video editing, and digital content creation</strong>.</p>
 			<p class="about-text">For me, every project is a chance to explore something new. I like bringing <strong>code, visual design, storytelling, experimentation, and problem-solving</strong> together to turn simple ideas into something meaningful and visually appealing.</p>
 			<p class="about-text">I'm still learning, still experimenting, and still creating.</p>
 			<blockquote class="about-text"><strong>"Learning and growing every day!"</strong></blockquote>
@@ -301,4 +301,47 @@
 		window.addEventListener('resize', scheduleHeroReveal, { passive: true });
 		updateHeroReveal();
 	}
+
+	/* -----------------------------------------------------------
+	   Auto-scroll: if user is idle for 5 s, start scrolling down
+	   automatically. Any user input stops it immediately.
+	   ----------------------------------------------------------- */
+	let autoScrollTimer = null;
+	let autoScrollId = null;
+	let autoScrollActive = false;
+	let autoScrollPaused = false;
+	const AUTO_DELAY = 5000;
+	const AUTO_STEP = 3;
+	const AUTO_INTERVAL = 16;
+
+	const stopAutoScroll = () => {
+		if (autoScrollId) { clearInterval(autoScrollId); autoScrollId = null; }
+		autoScrollActive = false;
+	};
+
+	const startAutoScroll = () => {
+		if (looping) { autoScrollTimer = setTimeout(startAutoScroll, AUTO_DELAY); return; }
+		autoScrollActive = true;
+		autoScrollPaused = false;
+
+		autoScrollId = setInterval(() => {
+			if (!autoScrollActive || autoScrollPaused) return;
+			const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+			if (window.scrollY >= maxScroll - 2) { stopAutoScroll(); return; }
+			window.scrollBy(0, AUTO_STEP);
+		}, AUTO_INTERVAL);
+	};
+
+	const onUserInput = () => {
+		if (autoScrollActive) { autoScrollPaused = true; stopAutoScroll(); }
+		clearTimeout(autoScrollTimer);
+		autoScrollTimer = setTimeout(startAutoScroll, AUTO_DELAY);
+	};
+
+	window.addEventListener('wheel', onUserInput, { passive: true });
+	window.addEventListener('touchstart', onUserInput, { passive: true });
+	window.addEventListener('mousedown', onUserInput, { passive: true });
+	window.addEventListener('keydown', onUserInput, { passive: true });
+
+	autoScrollTimer = setTimeout(startAutoScroll, AUTO_DELAY);
 })();

@@ -285,6 +285,11 @@ html.content-revealed .hero-wrap {
 	text-shadow: 0 0 14px rgba(0, 230, 118, 0.5);
 	transition: color 3s ease, text-shadow 3s ease;
 }
+.about-text strong.red.word-active {
+	color: var(--purple);
+	text-shadow: 0 0 14px rgba(255, 48, 48, 0.5);
+	transition: color 3s ease, text-shadow 3s ease;
+}
 .about-text blockquote,
 blockquote.about-text {
 	margin: 0 auto 18px;
