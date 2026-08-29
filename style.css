@@ -127,11 +127,6 @@ body.is-loading { overflow: hidden; }
 	filter: grayscale(.05) contrast(1.05) brightness(.9);
 }
 
-.stage-grid {
-	position: absolute; inset: 0;
-	display: none;
-}
-
 .stage-noise {
 	position: absolute; inset: 0; z-index: 3;
 	opacity: .045;
@@ -226,6 +221,12 @@ html.content-revealed .hero-wrap {
 	padding-top: 100vh;
 }
 
+/* ---- Section spacer ---- */
+.section-spacer {
+	width: 100%;
+	height: 34vh;
+}
+
 /* ---- Intro section ---- */
 .intro-section {
 	position: relative; z-index: 6;
@@ -245,15 +246,10 @@ html.content-revealed .hero-wrap {
 
 .intro-section .typing-svg { display: block; width: min(600px, 100%); height: auto; margin: 0 auto; }
 
-/* ---- Section spacers ---- */
-.section-spacer {
-	width: 100%;
-	height: 34vh;
-}
-
 /* ---- Generic section reveal ---- */
 .section-reveal {
 	position: relative; z-index: 6;
+	overflow: hidden;
 	padding: 10vh 5vw 12vh;
 	text-align: center;
 	color: var(--ink);
@@ -308,6 +304,8 @@ blockquote.about-text {
 }
 
 
+
+
 /* ---- Contact section ---- */
 .contact-links-row {
 	display: flex; justify-content: center; align-items: center; flex-wrap: wrap;
@@ -335,6 +333,7 @@ blockquote.about-text {
 .projects-section {
 	position: relative;
 	z-index: 6;
+	overflow: hidden;
 	min-height: auto;
 	padding: 10vh 5vw 12vh;
 	text-align: center;
@@ -457,8 +456,6 @@ blockquote.about-text {
 	.wordmark { letter-spacing: 0; font-size: clamp(2rem, 14vw, 3rem); }
 	.background-image { inset: -25%; width: 150%; height: 150%; }
 
-	.section-spacer { height: 26vh; }
-
 	.intro-section { padding: 5vh 4vw 8vh; min-height: 90vh; }
 	.section-reveal { padding: 5vh 4vw 8vh; }
 	.profile-container { width: min(92%, 760px); }
@@ -489,8 +486,6 @@ blockquote.about-text {
 	.wordmark { letter-spacing: 0.01em; }
 	.background-image { inset: -20%; width: 140%; height: 140%; }
 
-	.section-spacer { height: 28vh; }
-
 	.intro-section { padding: 6vh 5vw 8vh; min-height: 95vh; }
 	.section-reveal { padding: 5vh 5vw 8vh; }
 
@@ -509,8 +504,6 @@ blockquote.about-text {
 	.wordmark { letter-spacing: 0.01em; }
 	.background-image { inset: -20%; width: 140%; height: 140%; }
 
-	.section-spacer { height: 30vh; }
-
 	.intro-section { padding: 7vh 5vw 10vh; }
 	.section-reveal { padding: 6vh 5vw 10vh; }
 
@@ -528,8 +521,6 @@ blockquote.about-text {
 @media (min-width: 701px) and (max-width: 1024px) {
 	.hero-wrap { width: min(90vw, 1200px); min-width: 0; }
 
-	.section-spacer { height: 32vh; }
-
 	.intro-section { padding: 8vh 6vw 10vh; }
 	.section-reveal { padding: 8vh 6vw 10vh; }
 
@@ -543,8 +534,6 @@ blockquote.about-text {
 /* ---- Large desktops (≥1400px) ---- */
 @media (min-width: 1400px) {
 	.hero-wrap { width: min(80vw, 1500px); }
-
-	.section-spacer { height: 36vh; }
 
 	.profile-container { width: min(800px, 85%); }
 	.projects-grid { max-width: 560px; }

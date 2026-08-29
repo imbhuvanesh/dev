@@ -43,9 +43,9 @@
 	   Section content
 	   ----------------------------------------------------------- */
 	const journey = document.querySelector('.journey');
+	let looping = false;
 	if (journey) {
-		journey.innerHTML = `<div class="section-spacer" aria-hidden="true"></div>
-
+		journey.innerHTML = `
 		<section class="about-section profile-container section-reveal" aria-label="About">
 			<h2>About</h2>
 			<p class="about-text">Hi, I'm <strong>Bhuvanesh A</strong>.</p>
@@ -56,15 +56,12 @@
 			<blockquote class="about-text"><strong>"Learning and growing every day!"</strong></blockquote>
 		</section>
 
-		<div class="section-spacer" aria-hidden="true"></div>
-
 		<section class="skills-section profile-container section-reveal" aria-label="Skills and tools">
 			<h3>Tech Stack</h3>
 			<div class="profile-icon-row"><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=css" alt="CSS" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=flutter" alt="Flutter" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=git" alt="Git" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=html" alt="HTML" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=java" alt="Java" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=js" alt="JavaScript" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=linux" alt="Linux" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=mysql" alt="MySQL" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=nodejs" alt="Node.js" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=python" alt="Python" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=supabase" alt="Supabase" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=vscode" alt="VS Code" loading="lazy"></span></div>
 			<h3>Creative Tools</h3>
 			<div class="profile-icon-row"><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=ae" alt="Adobe After Effects" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=ps" alt="Adobe Photoshop" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=pr" alt="Adobe Premiere Pro" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=figma" alt="Figma" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=notion" alt="Notion" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=obsidian" alt="Obsidian" loading="lazy"></span></div>
 		</section>
-		<div class="section-spacer" aria-hidden="true"></div>
 
 		<section class="projects-section profile-container section-reveal" aria-label="Projects portfolio">
 			<h2>Projects</h2>
@@ -130,7 +127,6 @@
 				</article>
 		</div>
 		</section>
-		<div class="section-spacer" aria-hidden="true"></div>
 
 		<section class="contact-section profile-container section-reveal" aria-label="Contact">
 			<h2>Contact</h2>
@@ -145,7 +141,6 @@
 			<h3>Support My Work</h3>
 			<a class="support-button" href="https://buymeacoffee.com/bhuvaneshh" target="_blank" rel="noopener noreferrer"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" loading="lazy"></a>
 		</section>
-		<div class="section-spacer" aria-hidden="true"></div>
 		<div class="section-spacer" aria-hidden="true"></div>`;
 
 		/* ---- About word highlight: top to bottom, cumulative ---- */
@@ -237,7 +232,6 @@
 
 
 		/* ---- Loop: scroll back to hero at page bottom ---- */
-		let looping = false;
 		const loopThreshold = 80;
 
 		const resetAllSections = () => {
@@ -303,20 +297,23 @@
 	}
 
 	/* -----------------------------------------------------------
-	   Auto-scroll: if user is idle for 5 s, start scrolling down
-	   automatically. Any user input stops it immediately.
+	   Auto-scroll: if user is idle for 3 s, start scrolling downward
+	   automatically. Any user input (mouse move, manual scroll,
+	   click, key press, touch) stops it immediately.
 	   ----------------------------------------------------------- */
 	let autoScrollTimer = null;
 	let autoScrollId = null;
 	let autoScrollActive = false;
 	let autoScrollPaused = false;
-	const AUTO_DELAY = 5000;
-	const AUTO_STEP = 3;
-	const AUTO_INTERVAL = 16;
+	let autoScrollVelocity = 0;
+	const AUTO_DELAY = 3000;
+	const AUTO_SPEED = 60;
+	const AUTO_EASE = 0.04;
 
 	const stopAutoScroll = () => {
-		if (autoScrollId) { clearInterval(autoScrollId); autoScrollId = null; }
+		if (autoScrollId) { cancelAnimationFrame(autoScrollId); autoScrollId = null; }
 		autoScrollActive = false;
+		autoScrollVelocity = 0;
 	};
 
 	const startAutoScroll = () => {
@@ -324,12 +321,15 @@
 		autoScrollActive = true;
 		autoScrollPaused = false;
 
-		autoScrollId = setInterval(() => {
-			if (!autoScrollActive || autoScrollPaused) return;
+		const step = () => {
+			if (!autoScrollActive || autoScrollPaused || looping) { autoScrollId = null; return; }
 			const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
 			if (window.scrollY >= maxScroll - 2) { stopAutoScroll(); return; }
-			window.scrollBy(0, AUTO_STEP);
-		}, AUTO_INTERVAL);
+			autoScrollVelocity = Math.min(1, autoScrollVelocity + AUTO_EASE);
+			window.scrollBy(0, AUTO_SPEED * autoScrollVelocity / 60);
+			autoScrollId = requestAnimationFrame(step);
+		};
+		autoScrollId = requestAnimationFrame(step);
 	};
 
 	const onUserInput = () => {
@@ -342,6 +342,7 @@
 	window.addEventListener('touchstart', onUserInput, { passive: true });
 	window.addEventListener('mousedown', onUserInput, { passive: true });
 	window.addEventListener('keydown', onUserInput, { passive: true });
+	window.addEventListener('mousemove', onUserInput, { passive: true });
 
 	autoScrollTimer = setTimeout(startAutoScroll, AUTO_DELAY);
 })();
