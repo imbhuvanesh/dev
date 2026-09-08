@@ -60,7 +60,7 @@
 			<h3>Tech Stack</h3>
 			<div class="profile-icon-row"><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=css" alt="CSS" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=flutter" alt="Flutter" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=git" alt="Git" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=html" alt="HTML" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=java" alt="Java" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=js" alt="JavaScript" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=linux" alt="Linux" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=mysql" alt="MySQL" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=nodejs" alt="Node.js" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=python" alt="Python" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=supabase" alt="Supabase" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=vscode" alt="VS Code" loading="lazy"></span></div>
 			<h3>Creative Tools</h3>
-			<div class="profile-icon-row"><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=ae" alt="Adobe After Effects" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=ps" alt="Adobe Photoshop" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=pr" alt="Adobe Premiere Pro" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=figma" alt="Figma" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=notion" alt="Notion" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=obsidian" alt="Obsidian" loading="lazy"></span></div>
+			<div class="profile-icon-row"><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=ae" alt="Adobe After Effects" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=ps" alt="Adobe Photoshop" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=pr" alt="Adobe Premiere Pro" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=figma" alt="Figma" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=notion" alt="Notion" loading="lazy"></span><span class="icon-wrap"><img src="https://skillicons.dev/icons?i=obsidian" alt="Obsidian" loading="lazy"></span><span class="icon-wrap"><img src="Images/icons/capcut.svg" alt="CapCut" loading="lazy"></span></div>
 		</section>
 
 		<section class="projects-section profile-container section-reveal" aria-label="Projects portfolio">
@@ -99,7 +99,7 @@
 				<article class="project-card">
 					<div class="project-number">04</div>
 					<div class="project-icons">
-						<a class="project-icon" href="https://github.com/imbhuvanesh/Bills" target="_blank" rel="noopener noreferrer" aria-label="Bills App Source Code" title="App Source">
+						<a class="project-icon" href="https://www.mediafire.com/file/o8a3hwfd9fag5mj/bills.apk/file" target="_blank" rel="noopener noreferrer" aria-label="Download Bills APK" title="Download APK">
 							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
 						</a>
 					</div>
@@ -109,11 +109,21 @@
 				<article class="project-card">
 					<div class="project-number">05</div>
 					<div class="project-icons">
-						<a class="project-icon" href="https://github.com/imbhuvanesh/Draft" target="_blank" rel="noopener noreferrer" aria-label="Draft App Source Code" title="App Source">
+						<a class="project-icon" href="https://www.mediafire.com/file/8ai8zeqvgpysu87/draft.apk/file" target="_blank" rel="noopener noreferrer" aria-label="Download Draft APK" title="Download APK">
 							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
 						</a>
 					</div>
 					<a class="project-button" href="https://github.com/imbhuvanesh/Draft" target="_blank" rel="noopener noreferrer">Draft</a>
+				</article>
+
+				<article class="project-card">
+					<div class="project-number">06</div>
+					<div class="project-icons">
+						<a class="project-icon" href="https://www.mediafire.com/file/cgq7d67f4kkmudh/Mindful.apk/file" target="_blank" rel="noopener noreferrer" aria-label="Download Mindful APK" title="Download APK">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+						</a>
+					</div>
+					<a class="project-button" href="https://github.com/imbhuvanesh/Mindful" target="_blank" rel="noopener noreferrer">Mindful</a>
 				</article>
 		</div>
 		</section>
