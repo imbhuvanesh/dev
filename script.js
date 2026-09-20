@@ -125,12 +125,26 @@
 					</div>
 					<a class="project-button" href="https://github.com/imbhuvanesh/Mindful" target="_blank" rel="noopener noreferrer">Mindful</a>
 				</article>
+
+				<article class="project-card">
+					<div class="project-number">07</div>
+					<div class="project-icons">
+						<a class="project-icon" href="https://imbhuvanesh.github.io/Bluedangle.in/" target="_blank" rel="noopener noreferrer" aria-label="Blue Dangle Web Version" title="Web Version">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+						</a>
+						<a class="project-icon" href="https://www.mediafire.com/file/kd3iomwy4ohb0qm/Blue-Dangle-Setup-1.0.0.exe/file" target="_blank" rel="noopener noreferrer" aria-label="Download Blue Dangle Desktop App" title="Desktop App">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+						</a>
+					</div>
+					<a class="project-button" href="https://imbhuvanesh.github.io/Bluedangle.in/" target="_blank" rel="noopener noreferrer">Blue Dangle</a>
+				</article>
 		</div>
 		</section>
 
 		<section class="contact-section profile-container section-reveal" aria-label="Contact">
 			<h2>Contact</h2>
 			<div class="contact-links-row">
+				<a class="contact-link" href="https://wa.me/919944725379" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp: +91 99447 25379" title="WhatsApp"><img src="Images/icons/whatsapp.svg" alt="" loading="lazy"></a>
 				<a class="contact-link" href="mailto:iambhuvanesh.a@gmail.com" aria-label="Email: iambhuvanesh.a@gmail.com" title="Email"><img src="Images/icons/gmail.png" alt="" loading="lazy"></a>
 				<a class="contact-link" href="https://github.com/imbhuvanesh/" target="_blank" rel="noopener noreferrer" aria-label="GitHub: github.com/imbhuvanesh/" title="GitHub"><img src="Images/icons/github.png" alt="" loading="lazy"></a>
 				<a class="contact-link" href="https://instagram.com/bhuvy._" target="_blank" rel="noopener noreferrer" aria-label="Instagram: @bhuvy._" title="Instagram"><img src="Images/icons/instragram.png" alt="" loading="lazy"></a>
