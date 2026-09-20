@@ -289,7 +289,7 @@
 		}
 
 
-		/* ---- Loop: scroll back to hero at page bottom ---- */
+		/* ---- Loop: scroll back to hero at page bottom. ---- */
 		const loopThreshold = 80;
 
 		const resetAllSections = () => {
