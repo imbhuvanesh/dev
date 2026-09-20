@@ -182,6 +182,24 @@
 					</div>
 					<a class="project-button" href="https://imbhuvanesh.github.io/Bluedangle.in/" target="_blank" rel="noopener noreferrer">View Project <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
 				</article>
+
+				<article class="project-card">
+					<div class="project-card-head">
+						<span class="project-number">08</span>
+						<h3 class="project-title">DUCK</h3>
+						<span class="project-type">Web &amp; Desktop</span>
+					</div>
+					<p class="project-desc">Your files. Automatically organised. A lightweight Windows app that keeps your files organised by itself.</p>
+					<div class="project-icons">
+						<a class="project-icon" href="https://imbhuvanesh.github.io/Duck.app/" target="_blank" rel="noopener noreferrer" aria-label="DUCK Web Version" title="View Live">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+						</a>
+						<a class="project-icon" href="https://www.mediafire.com/file/rjrpsbuz8td251v/duck.exe/file" target="_blank" rel="noopener noreferrer" aria-label="Download DUCK Desktop App" title="Download Desktop App">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+						</a>
+					</div>
+					<a class="project-button" href="https://imbhuvanesh.github.io/Duck.app/" target="_blank" rel="noopener noreferrer">View Project <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+				</article>
 		</div>
 		</section>
 
