@@ -67,76 +67,120 @@
 			<h2>Projects</h2>
 			<div class="projects-grid">
 				<article class="project-card">
-					<div class="project-number">01</div>
+					<div class="project-card-head">
+						<span class="project-number">01</span>
+						<h3 class="project-title">B-Minds</h3>
+						<span class="project-type">Web</span>
+					</div>
+					<p class="project-desc">An interactive web experiment blending motion and design into a playful, single-page experience.</p>
 					<div class="project-icons">
-						<a class="project-icon" href="https://imbhuvanesh.github.io/B-minds/" target="_blank" rel="noopener noreferrer" aria-label="B-Minds Web Version" title="Web Version">
+						<a class="project-icon" href="https://imbhuvanesh.github.io/B-minds/" target="_blank" rel="noopener noreferrer" aria-label="B-Minds Web Version" title="View Live">
 							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
 						</a>
 					</div>
-					<a class="project-button" href="https://imbhuvanesh.github.io/B-minds/" target="_blank" rel="noopener noreferrer">B-Minds</a>
+					<a class="project-button" href="https://imbhuvanesh.github.io/B-minds/" target="_blank" rel="noopener noreferrer">View Project <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
 				</article>
 
 				<article class="project-card">
-					<div class="project-number">02</div>
+					<div class="project-card-head">
+						<span class="project-number">02</span>
+						<h3 class="project-title">DIGI NEXUZ</h3>
+						<span class="project-type">Web</span>
+					</div>
+					<p class="project-desc">A digital presence built for a modern brand — clean layout, bold visuals, and smooth interactions.</p>
 					<div class="project-icons">
-						<a class="project-icon" href="https://imbhuvanesh.github.io/DG/" target="_blank" rel="noopener noreferrer" aria-label="DIGI NEXUZ Web Version" title="Web Version">
+						<a class="project-icon" href="https://imbhuvanesh.github.io/DG/" target="_blank" rel="noopener noreferrer" aria-label="DIGI NEXUZ Web Version" title="View Live">
 							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
 						</a>
 					</div>
-					<a class="project-button" href="https://imbhuvanesh.github.io/DG/" target="_blank" rel="noopener noreferrer">DIGI NEXUZ</a>
+					<a class="project-button" href="https://imbhuvanesh.github.io/DG/" target="_blank" rel="noopener noreferrer">View Project <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
 				</article>
 
 				<article class="project-card">
-					<div class="project-number">03</div>
+					<div class="project-card-head">
+						<span class="project-number">03</span>
+						<h3 class="project-title">IFIXON</h3>
+						<span class="project-type">Web</span>
+					</div>
+					<p class="project-desc">A repair-services website that turns a busy industry into a simple, trustworthy online experience.</p>
 					<div class="project-icons">
-						<a class="project-icon" href="https://imbhuvanesh.github.io/ifixon/" target="_blank" rel="noopener noreferrer" aria-label="IFIXON Web Version" title="Web Version">
+						<a class="project-icon" href="https://imbhuvanesh.github.io/ifixon/" target="_blank" rel="noopener noreferrer" aria-label="IFIXON Web Version" title="View Live">
 							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
 						</a>
 					</div>
-					<a class="project-button" href="https://imbhuvanesh.github.io/ifixon/" target="_blank" rel="noopener noreferrer">IFIXON</a>
+					<a class="project-button" href="https://imbhuvanesh.github.io/ifixon/" target="_blank" rel="noopener noreferrer">View Project <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
 				</article>
 
 				<article class="project-card">
-					<div class="project-number">04</div>
+					<div class="project-card-head">
+						<span class="project-number">04</span>
+						<h3 class="project-title">Bills</h3>
+						<span class="project-type">Android</span>
+					</div>
+					<p class="project-desc">A Flutter app for splitting and tracking expenses between friends — simple, fast, and offline-first.</p>
 					<div class="project-icons">
 						<a class="project-icon" href="https://www.mediafire.com/file/o8a3hwfd9fag5mj/bills.apk/file" target="_blank" rel="noopener noreferrer" aria-label="Download Bills APK" title="Download APK">
 							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
 						</a>
+						<a class="project-icon" href="https://github.com/imbhuvanesh/Bills" target="_blank" rel="noopener noreferrer" aria-label="Bills GitHub" title="Source Code">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+						</a>
 					</div>
-					<a class="project-button" href="https://github.com/imbhuvanesh/Bills" target="_blank" rel="noopener noreferrer">Bills</a>
+					<a class="project-button" href="https://github.com/imbhuvanesh/Bills" target="_blank" rel="noopener noreferrer">View Project <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
 				</article>
 
 				<article class="project-card">
-					<div class="project-number">05</div>
+					<div class="project-card-head">
+						<span class="project-number">05</span>
+						<h3 class="project-title">Draft</h3>
+						<span class="project-type">Android</span>
+					</div>
+					<p class="project-desc">A note-taking companion that keeps capturing ideas effortless, with a clean and minimal interface.</p>
 					<div class="project-icons">
 						<a class="project-icon" href="https://www.mediafire.com/file/8ai8zeqvgpysu87/draft.apk/file" target="_blank" rel="noopener noreferrer" aria-label="Download Draft APK" title="Download APK">
 							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
 						</a>
+						<a class="project-icon" href="https://github.com/imbhuvanesh/Draft" target="_blank" rel="noopener noreferrer" aria-label="Draft GitHub" title="Source Code">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+						</a>
 					</div>
-					<a class="project-button" href="https://github.com/imbhuvanesh/Draft" target="_blank" rel="noopener noreferrer">Draft</a>
+					<a class="project-button" href="https://github.com/imbhuvanesh/Draft" target="_blank" rel="noopener noreferrer">View Project <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
 				</article>
 
 				<article class="project-card">
-					<div class="project-number">06</div>
+					<div class="project-card-head">
+						<span class="project-number">06</span>
+						<h3 class="project-title">Mindful</h3>
+						<span class="project-type">Android</span>
+					</div>
+					<p class="project-desc">A calm companion for focus and reflection — gentle reminders that slow you down and breathe.</p>
 					<div class="project-icons">
 						<a class="project-icon" href="https://www.mediafire.com/file/cgq7d67f4kkmudh/Mindful.apk/file" target="_blank" rel="noopener noreferrer" aria-label="Download Mindful APK" title="Download APK">
 							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
 						</a>
+						<a class="project-icon" href="https://github.com/imbhuvanesh/Mindful" target="_blank" rel="noopener noreferrer" aria-label="Mindful GitHub" title="Source Code">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+						</a>
 					</div>
-					<a class="project-button" href="https://github.com/imbhuvanesh/Mindful" target="_blank" rel="noopener noreferrer">Mindful</a>
+					<a class="project-button" href="https://github.com/imbhuvanesh/Mindful" target="_blank" rel="noopener noreferrer">View Project <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
 				</article>
 
 				<article class="project-card">
-					<div class="project-number">07</div>
+					<div class="project-card-head">
+						<span class="project-number">07</span>
+						<h3 class="project-title">Blue Dangle</h3>
+						<span class="project-type">Web &amp; Desktop</span>
+					</div>
+					<p class="project-desc">A full product experience — playful brand site plus a packaged desktop app, shipped across platforms.</p>
 					<div class="project-icons">
-						<a class="project-icon" href="https://imbhuvanesh.github.io/Bluedangle.in/" target="_blank" rel="noopener noreferrer" aria-label="Blue Dangle Web Version" title="Web Version">
+						<a class="project-icon" href="https://imbhuvanesh.github.io/Bluedangle.in/" target="_blank" rel="noopener noreferrer" aria-label="Blue Dangle Web Version" title="View Live">
 							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
 						</a>
-						<a class="project-icon" href="https://www.mediafire.com/file/kd3iomwy4ohb0qm/Blue-Dangle-Setup-1.0.0.exe/file" target="_blank" rel="noopener noreferrer" aria-label="Download Blue Dangle Desktop App" title="Desktop App">
+						<a class="project-icon" href="https://www.mediafire.com/file/kd3iomwy4ohb0qm/Blue-Dangle-Setup-1.0.0.exe/file" target="_blank" rel="noopener noreferrer" aria-label="Download Blue Dangle Desktop App" title="Download Desktop App">
 							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
 						</a>
 					</div>
-					<a class="project-button" href="https://imbhuvanesh.github.io/Bluedangle.in/" target="_blank" rel="noopener noreferrer">Blue Dangle</a>
+					<a class="project-button" href="https://imbhuvanesh.github.io/Bluedangle.in/" target="_blank" rel="noopener noreferrer">View Project <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
 				</article>
 		</div>
 		</section>

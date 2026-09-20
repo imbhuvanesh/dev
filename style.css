@@ -356,24 +356,54 @@ blockquote.about-text {
 .projects-grid {
 	display: grid;
 	grid-template-columns: 1fr;
-	gap: 14px;
-	max-width: 480px;
+	gap: 20px;
+	max-width: 540px;
 	margin: 32px auto 0;
 }
 
+/* ---- Container card ---- */
 .project-card {
-	display: grid;
-	grid-template-columns: auto 1fr;
-	align-items: center;
-	gap: 16px;
+	position: relative;
 	text-align: left;
+	padding: 24px 26px;
+	border: 1px solid var(--line);
+	border-radius: 16px;
+	background:
+		linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.06),
+		0 14px 36px rgba(0, 0, 0, 0.35);
 	opacity: 0;
 	transform: translateY(16px);
-	transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+	transition:
+		opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+		transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+		border-color 0.35s ease,
+		box-shadow 0.35s ease;
 }
 
-.project-card:has(.project-icons) {
-	grid-template-columns: auto auto 1fr;
+.project-card::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	background: radial-gradient(120% 100% at 100% 0%, rgba(255, 48, 48, 0.08), transparent 55%);
+	opacity: 0;
+	transition: opacity 0.35s ease;
+	pointer-events: none;
+}
+
+.project-card:hover,
+.project-card:focus-within {
+	border-color: rgba(255, 255, 255, 0.32);
+	transform: translateY(-4px);
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.08),
+		0 22px 48px rgba(0, 0, 0, 0.5);
+}
+
+.project-card:hover::before {
+	opacity: 1;
 }
 
 .project-card.card-visible {
@@ -381,54 +411,73 @@ blockquote.about-text {
 	transform: translateY(0);
 }
 
+/* ---- Card head: number + title + platform tag ---- */
+.project-card-head {
+	display: flex;
+	align-items: baseline;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin-bottom: 10px;
+}
+
 .project-number {
 	font-family: 'DM Mono', monospace;
-	font-size: 1.1rem;
+	font-size: 0.9rem;
 	font-weight: 600;
-	color: var(--muted);
+	color: var(--green);
 	letter-spacing: 0.08em;
+	border: 1px solid rgba(0, 230, 118, 0.35);
+	border-radius: 6px;
+	padding: 3px 8px;
+	background: rgba(0, 230, 118, 0.06);
+	flex-shrink: 0;
 }
 
-.project-button {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-	padding: 16px 22px;
-	font-size: clamp(0.9rem, 1.8vw, 1.05rem);
-	font-weight: 600;
-	letter-spacing: 0.03em;
-	text-align: center;
+.project-title,
+h3.project-title {
+	margin: 0;
+	font-size: clamp(1.1rem, 2.4vw, 1.45rem);
+	font-weight: 700;
+	letter-spacing: -0.01em;
+	line-height: 1.25;
 	color: var(--ink);
+}
+
+.project-type {
+	margin-left: auto;
+	font-family: 'DM Mono', monospace;
+	font-size: 0.72rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--muted);
 	border: 1px solid var(--line);
-	border-radius: 8px;
-	background: rgba(255, 255, 255, 0.03);
-	transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-	cursor: pointer;
-	text-decoration: none;
-	line-height: 1.2;
+	border-radius: 999px;
+	padding: 4px 10px;
+	white-space: nowrap;
+	flex-shrink: 0;
 }
 
-.project-button:hover,
-.project-button:focus {
-	border-color: var(--green);
-	background: rgba(0, 230, 118, 0.08);
-	color: #fff;
-	box-shadow: 0 4px 20px rgba(0, 230, 118, 0.15);
+.project-desc {
+	margin: 0 0 18px;
+	font-size: clamp(0.88rem, 1.6vw, 1rem);
+	line-height: 1.7;
+	color: var(--muted);
 }
 
+/* ---- Actions row ---- */
 .project-icons {
 	display: flex;
-	gap: 8px;
+	gap: 10px;
+	margin-bottom: 18px;
 }
 
 .project-icon {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 36px;
-	height: 36px;
-	border-radius: 8px;
+	width: 40px;
+	height: 40px;
+	border-radius: 10px;
 	border: 1px solid var(--line);
 	background: rgba(255, 255, 255, 0.03);
 	color: var(--muted);
@@ -444,6 +493,45 @@ blockquote.about-text {
 	color: var(--green);
 	box-shadow: 0 2px 12px rgba(0, 230, 118, 0.2);
 	transform: scale(1.1);
+}
+
+.project-button {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	width: 100%;
+	padding: 13px 18px;
+	font-size: clamp(0.9rem, 1.8vw, 1rem);
+	font-weight: 600;
+	letter-spacing: 0.03em;
+	text-align: left;
+	color: var(--ink);
+	border: 1px solid var(--line);
+	border-radius: 10px;
+	background: rgba(255, 255, 255, 0.03);
+	transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+	cursor: pointer;
+	text-decoration: none;
+	line-height: 1.2;
+}
+
+.project-button .btn-arrow {
+	flex-shrink: 0;
+	transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-button:hover,
+.project-button:focus {
+	border-color: var(--green);
+	background: rgba(0, 230, 118, 0.08);
+	color: #fff;
+	box-shadow: 0 4px 20px rgba(0, 230, 118, 0.15);
+}
+
+.project-button:hover .btn-arrow,
+.project-button:focus .btn-arrow {
+	transform: translateX(4px);
 }
 
 /* =========================================================
@@ -472,10 +560,15 @@ blockquote.about-text {
 	.contact-link img { width: 38px; height: 38px; border-radius: 8px; }
 	.contact-section .support-button img { width: min(160px, 60vw); }
 
-	.projects-grid { gap: 8px; }
-	.project-card { gap: 10px; }
+	.projects-grid { gap: 12px; }
+	.project-card { padding: 18px 16px; border-radius: 12px; }
+	.project-card-head { gap: 8px; margin-bottom: 8px; }
+	.project-title,
+	h3.project-title { font-size: 1rem; }
+	.project-type { font-size: 0.64rem; padding: 3px 7px; }
+	.project-desc { margin-bottom: 14px; font-size: 0.84rem; }
 	.project-button { padding: 12px 14px; font-size: 0.8rem; }
-	.project-number { font-size: 0.85rem; }
+	.project-number { font-size: 0.78rem; }
 	.project-icon { width: 32px; height: 32px; }
 	.project-icon svg { width: 16px; height: 16px; }
 }
@@ -512,9 +605,9 @@ blockquote.about-text {
 	.contact-link img { width: 44px; height: 44px; }
 	.contact-section .support-button { max-width: 100%; overflow: hidden; }
 
-	.projects-grid { gap: 10px; }
-	.project-button { padding: 14px 18px; font-size: 0.9rem; }
-	.project-number { font-size: 0.95rem; }
+	.projects-grid { gap: 14px; }
+	.project-card { padding: 20px 18px; }
+	.project-button { padding: 14px 16px; font-size: 0.85rem; }
 }
 
 /* ---- Tablets (701px–1024px) ---- */
